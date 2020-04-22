@@ -75,7 +75,7 @@
     <div class="logo-links">
       <p id="apex-logo">APEX</p>
 
-      <a href="https://github.com/crato-logging/crato" target="_blank">
+      <a href="https://github.com/apex-api-proxy" target="_blank">
         <img
           src="images/logos/github_black.png"
           alt="github logo"
@@ -114,23 +114,21 @@
       <h1>
         <img src="images/logos/apex-logo.png" alt="Apex logo" />
 
-        <p>easy log management for small applications</p>
+        <p>API proxy for microservices</p>
       </h1>
     </header>
 
     <section class="integration">
       <div class="box">
-        <img src="images/crato_horizontal.png" alt="best practices" />
+        <img src="images/diagrams/apex-architecture-2.png" alt="best practices" />
       </div>
 
       <article class="box">
         <div class="text-box">
-          <h1>Centralize your logs</h1>
+          <h1>Manage service-to-service traffic</h1>
 
           <p>
-            Crato is an open-source framework for small applications to easily
-            deploy a centralized logging solution that maintains ownership of
-            data.
+            Centralized logging, tracing, and custom retry logic without managing client libraries in microservices.
           </p>
 
           <!-- <a class="button" href="#case-study">Learn More</a> -->
@@ -155,7 +153,7 @@
           id="banner-deploy"
           src="images/diagrams/gifs/crato_docker_deploy.gif"
           class="softened"
-          alt="Gif of crato's install-kafka and deploy commands"
+          alt="Deploy Apex proxy with a few commands"
         />
       </div>
     </section>
@@ -178,67 +176,35 @@
         <h2 id="introduction">1) Introduction</h2>
 
         <p>
-          Apex is an API proxy for microservices. It provides one place to log
-          and control service-to-service traffic.
+          Apex is an API proxy for microservices. It provides one place to log and control service-to-service traffic.
         </p>
 
         <p>
-          Apex is designed for small teams that have just begun migrating from a
-          monolith to a microservices architecture. While microservices bring
-          many benefits, chief among them greater scalability, they also bring a
-          host of new challenges by relying on the network for
-          service-to-service communication. As network communication is
-          unreliable and has latency, faults become more likely to occur,
-          leading teams to have to spend more time diagnosing network-related
-          faults, and writing pre-emptive fault-handling logic within each
-          service.
+          Apex is designed for small teams that have just begun migrating from a monolith to a microservices architecture. While microservices bring many benefits, chief among them greater scalability, they also bring a host of new challenges by relying on the network for service-to-service communication. As network communication is unreliable and has latency, faults become more likely to occur, leading teams to have to spend more time diagnosing network-related faults, and writing pre-emptive fault-handling logic within each service.
         </p>
 
         <p>
-          Some current solutions exist to help teams perform these tasks faster.
-          Client libraries can be imported into each service’s code to automate
-          networking concerns, an API gateway can be inserted in front of all
-          services to handle incoming traffic, and for large systems, a service
-          mesh is often deployed to abstract away networking concerns from
-          services altogether. These are all valid solutions, designed for
-          different users, and with their own set of trade-offs.
+          Some current solutions exist to help teams perform these tasks faster. Client libraries can be imported into each service’s code to automate networking concerns, an API gateway can be inserted in front of all services to handle incoming traffic, and for large systems, a service mesh is often deployed to abstract away networking concerns from services altogether. These are all valid solutions, designed for different users, and with their own set of trade-offs.
         </p>
 
         <p>
-          For a small team running their first few microservices, however, none
-          of the existing solutions provide the right set of trade-offs:
-          optimized for service-to-service traffic, and ease of deployment and
-          operation, over high availability and scalability. These are the
-          trade-offs that underpinned Apex’s design.
+          For a small team running their first few microservices, however, none of the existing solutions provide the right set of trade-offs: optimized for service-to-service traffic, and ease of deployment and operation, over high availability and scalability. These are the trade-offs that underpinned Apex’s design.
         </p>
 
         <p>
-          With Apex, a user can view the logs for all service-to-service traffic
-          by querying just one table, while grouping all requests and responses
-          that belong to the same workflow. They can also define and update
-          traffic rules such as the number of times to retry a request in one
-          configuration store.
+          With Apex, a user can view the logs for all service-to-service traffic by querying just one table, while grouping all requests and responses that belong to the same workflow. They can also define and update traffic rules such as the number of times to retry a request in one configuration store.
         </p>
 
         <h2 id="microservices">2) Microservices</h2>
 
         <p>
-          To understand how Apex makes it easier to work with microservices, it
-          is important to first understand what microservices are. This, in
-          turn, requires understanding that the microservices architecture is a
-          choice, the other choice being, of course, a monolith.
+          To understand how Apex makes it easier to work with microservices, it is important to first understand what microservices are. This, in turn, requires understanding that the microservices architecture is a choice, the other choice being, of course, a monolith.
         </p>
 
         <h3>2.1) Microservices are an alternative to monoliths</h3>
 
         <p>
-          In a monolithic architecture, there is typically just one application
-          server (the ‘monolith’) that holds all the business logic. In some
-          cases, this application server alone is already sufficient to serve an
-          application to a user (e.g. a website with just static HTML). More
-          likely though, the application will also generate some user data that
-          must be persisted, and so the monolithic application server will also
-          transfer data to and from a database server.
+          In a monolithic architecture, there is typically just one application server (the ‘monolith’) that holds all the business logic. In some cases, this application server alone is already sufficient to serve an application to a user (e.g. a website with just static HTML). More likely though, the application will also generate some user data that must be persisted, and so the monolithic application server will also transfer data to and from a database server.
         </p>
 
         <div class="img-wrapper">
@@ -246,21 +212,11 @@
         </div>
 
         <p>
-          Consider the above example of a monolithic system that serves an
-          e-commerce store to users. The business logic in the app server can be
-          organized into classes or modules (precise terminology depends on the
-          language used by the app), or more generally, ‘subsystems’, that
-          encapsulate related functionality e.g. manipulating customer data,
-          checking and updating inventory, generating shipping instructions.
-          These subsystems can each expose an interface of methods, or more
-          generally ‘behaviors’, that can be invoked by each other to facilitate
-          communication between them.
+          Consider the above example of a monolithic system that serves an e-commerce store to users. The business logic in the app server can be organized into classes or modules, or more generally, ‘subsystems’, that encapsulate related functionality e.g. manipulating customer data, checking and updating inventory, generating shipping instructions. These subsystems can each expose an interface of methods, or more generally ‘behaviors’, that can be invoked by each other to facilitate communication between them.
         </p>
 
         <p>
-          As method or function calls take place within the same running process
-          in memory, they are reliable and very fast, usually returning within a
-          few milliseconds.
+          As method or function calls take place within the same running process in memory, they are reliable and very fast, usually returning within a few milliseconds.
         </p>
 
         <div class="img-wrapper">
@@ -283,51 +239,314 @@
         </div>
 
         <p>
-          A simple analogy for a monolithic application is a small business run
-          by just one owner. The owner has to do everything - sales and
-          marketing, procurement, operations, finance, IT. There may be one
-          central log book that keeps track of all business data, or the owner
-          could use several ‘persistent data stores’ in parallel e.g. CRM system
-          for sales data, accounting software for financial data, ERP system for
-          inventory data, pen and paper for tax filings.
+          A simple analogy for a monolithic application is a small business run by just one owner. The owner has to do everything - sales and marketing, procurement, operations, finance, IT. There may be one central log book that keeps track of all business data, or the owner could use several ‘persistent data stores’ in parallel e.g. CRM system for sales data, accounting software for financial data, ERP system for inventory data, pen and paper for tax filings.
         </p>
 
-        <h3>2.2) Monoliths are often simple to manage, but less scalable</h3>
+        <h3>2.2) Microservices architecture organizes business logic into multiple independently deployed ‘services’</h3>
 
         <p>
-          Every novice programmer probably built their first project as a
-          monolith, and for good reason - monoliths are <span
-          class="strikethrough">simpler to develop</span>, simpler to deploy and
-          simpler to scale.
+          In a microservices architecture, subsystems are decoupled even further. Now, each subsystem is deployed independently to its own app server as a standalone ‘application’, or ‘service’, and the current best practice is for every service to have its own database.
         </p>
 
-        <p class="strikethrough">
-          For a small application, having all the business logic in the same
-          codebase simplifies development. A new developer only has to
-          understand that one codebase, and so can ramp up and become productive
-          relatively quickly. With subsystems communicating over reliable and
-          fast method calls, tests are also straightforward to write, and fast
-          to run.
-        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/2.2) subsystems.png"
+            alt="Subsystems can exist in monoliths and as microservices"
+          />
+        </div>
 
         <p>
-          Deploying a monolith is made simpler by the relatively small number of
-          components that must be made live. For our e-commerce example app, all
-          we have to deploy are two components: an app server running our app
-          code, and a database server running our database of choice. We can
-          further simplify this by using a platform as a service (PaaS) solution
-          such as Heroku, which enables us to deploy a small monolith with just
-          a handful of commands.
+          The other crucial difference is that subsystems now communicate over the network via HTTP requests, rather than through in-process method invocations. So for example, if our `orders` service needs to create a new shipment, it might do this by sending a `POST` request to the `/shipments` endpoint of the `shipping` service, and attaching any other relevant information in the request body.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/2.2) over the network.png"
+            alt="Microservices communicate over the network via http requests and responses"
+          />
+        </div>
+
+        <p>
+          Going with the same analogy of a small business, the microservices architecture is comparable to a small team of several members (services) who each specialize in one function. For example, these could include a salesperson, a marketer, an operations manager, accountant/bookkeeper and an IT manager. Now, function-to-function communication no longer happens in the owner’s head (in-process); instead, different team members must communicate with each other in person, on the phone or by email (over the network) to get things done.
         </p>
 
         <p>
-          Similarly, scaling is simpler because there are fewer components to
-          scale. With our e-commerce example, we have the choice of ‘scaling up’
-          - deploying our app to a more powerful server - or ‘scaling out’ -
-          deploying one or more replicas of our app to more servers. One way or
-          another, the fewer components we have deployed, the less work it takes
-          to scale them.
+          As we shall see, the use of the network for communication between subsystems is the key enabler for many of the benefits of the microservices architecture, but also the main culprit behind many of its drawbacks.
         </p>
+
+        <h3>2.3) Microservices enable subsystems to be developed, deployed and scaled independently from each other</h3>
+
+        <p>
+          The benefits of the microservices architecture become apparent as systems, and the teams that develop and operate them, grow beyond a certain scale.
+        </p>
+
+        <p>
+          The network boundaries between services free them from having to use the same technology stack. As long as each service maintains a stable network interface, or API, for other services talking to it, it is free to choose the language or framework that is most optimal for implementing its business logic.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/2.3) different technologies.png"
+            alt="Microservices can use different technologies as long as their APIs remain stable"
+          />
+        </div>
+
+        <p>
+          Where microservices really shine, though, is the option to <a href="https://martinfowler.com/articles/microservices.html">deploy subsystems independently of each other</a>. With subsystems now deployed to independent services that each have a smaller scope, redeploying any one subsystem incurs less overhead and so it becomes practical to redeploy each service more frequently.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/2.2) independently redeployed.png"
+            alt="Each microservice can be independently redeployed as long as their APIs remain stable"
+          />
+        </div>
+
+        <p>
+          More concretely, in our e-commerce example app, as soon as a feature in the `orders` service is ready, `orders` can be redeployed - as long as `orders`’s API remains the same before and after the deployment, other services need not even know that a redeployment took place. On the other hand, if the `notifications` logic rarely changes, then that service can simply continue to operate untouched. By minimising the scope of each redeployment, we not only eliminate unnecessary engineering, but are also able to ship new features faster and reap the business benefits sooner.
+        </p>
+
+        <p>
+          A similar efficiency is found in scaling a microservices architecture. If our `orders` service is the first to reach its capacity, then we can simply upgrade `orders` to a more powerful server or deploy more replicas of `orders`, without having to also replicate every other service. Yet again, as long as the replicated `orders` service retains the same API before and after scaling, the other services can continue to operate in the same way as though nothing happened. The result is fewer large-scale system-wide redeployments and higher utilisation of provisioned resources, leading to savings in engineering time and costs.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/2.3) independently scaled.png"
+            alt="Each microservice can be independently scaled as long as their APIs remain stable"
+          />
+        </div>
+
+        <h2 id="microservices">3) Challenges with microservices</h2>
+
+        <p>
+          We have seen how the network boundaries between microservices are what give them many benefits over a monolith. The network, however, comes with baggage, and relying heavily on it to communicate between subsystems introduces an entire new dimension of challenges.
+        </p>
+
+        <h3>3.1) Microservices communicate over the network, which is unreliable and has latency</h3>
+
+        <p>
+          Recall that in a monolith, subsystems are simply classes or modules that communicate through method invocations within the same process in memory. In contrast, in a microservices architecture, equivalent calls are now sent between services using HTTP requests and responses over the network.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/3.1) method calls fast.png"
+            alt="Method calls are fast; network hops are relatively slow"
+          />
+        </div>
+
+        <p>
+          As any sufficiently heavy user of the internet will have experienced, the network is unreliable and has latency. That is, networks can disconnect for any number of reasons, and network traffic can sometimes take a long time to reach its destination. Even though in production, services are likely deployed to state-of-the-art data centers run by cloud providers, network faults still can and do occur.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/3.1) dropped from network.png"
+            alt="Requests or responses can be dropped from the network"
+          />
+        </div>
+
+        <p>
+          Such faults introduce a whole new class of problems for developers - not only do they have to ensure their service code is bug-free, now they also have to diagnose unexpected network faults, and add logic to service code that preempts network faults by providing compensating behaviors (e.g. displaying a ‘network down’ page to users, or retrying the same request a few seconds later).
+        </p>
+
+        <h3>3.2) Diagnosing network faults can be cumbersome</h3>
+
+        <p>
+          Diagnosing a network fault can be especially difficult when a single workflow passes through multiple services. Consider a user placing an order on our e-commerce example app, and suppose the <code>orders</code> service needs to first update inventory in <code>inventory</code>, then create a shipment in <code>shipping</code>. This one workflow involves 3 services with at least 3 network hops between them. If the order placement eventually fails, what caused that to happen?
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/3.2) where did the fault.png"
+            alt="Finding where the network fault occurred can be difficult"
+          />
+        </div>
+
+        <p>
+          To find out, a developer would have to trace the user’s initial `POST` request through the entire system. Since each service generates its own logs, the developer would have to first access `orders`’s logs, track down the request that failed, follow the request to the next service (in our case, the `inventory` service), access `customers`’s logs, and so on, until they pinpoint the exact request that failed. This can be a laborious and slow process.
+        </p>
+
+        <h3>3.3) Defining similar fault-handling logic within libraries in service code slows down updates to the logic</h3>
+
+        <p>
+          Other times, a network fault may be totally random, and a request should simply be retried again. But how long should the requesting service wait before retrying again? How many times should it retry before giving up? If too soon or too many, then all the retries could overwhelm the responding service. Such logic must be defined thoughtfully.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/3.3) retry failed.png"
+            alt="Retrying failed requests requires thoughtful logic"
+          />
+        </div>
+
+        <p>
+          The next question becomes: where should all this logic be defined? For some teams, the first answer to this question is in HTTP client libraries that are imported into each service’s code. So if the <code>orders</code> service is written in Ruby, then it would <code>require</code> a gem that provides a configurable client for making HTTP requests to other services. Another service written in Node might <code>import</code> a similar package into its code.
+        </p>
+
+        <p>
+          Often, these libraries can also handle logging, as well as other networking and infrastructure concerns, such as caching, rate-limiting, authentication etc.
+        </p>
+
+        <p>
+          Teams with more resources may go further, by having each service’s owner write a client library for every other service that calls it. This is already common practice when working with popular external APIs; for example, Stripe provides dozens of <a href="https://stripe.com/docs/libraries">official and third-party libraries</a> in different languages that abstract away the logic for calling its APIs. In the same way, in a large team each service’s owner may be tasked with writing a new client library for every requesting service that uses a different language.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/3.3) a new shipping client.png"
+            alt="A new shipping client library for every language"
+          />
+        </div>
+
+        <p>
+          Needless to say, this solution becomes less and less manageable as the number of services grows. Every time a new service is built in a new language, every other service owner must write a new client library in that language. More critically, updating fault-handling logic now incurs a great deal of repetitive work. Suppose the CTO wishes to update the global defaults for the retry logic; developers would now have to update the code in multiple client libraries in every service, then carefully coordinate each service’s redeployment. The greater the number of services, the slower this process becomes.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/3.3) as more services.png"
+            alt="As more services are added, client libraries can get out of hand"
+          />
+        </div>
+
+        <h2>4) Existing solutions</h2>
+
+        <p>
+          With microservices becoming increasingly popular, a number of solutions have emerged to help teams overcome these challenges. Here we explain how two of these solutions - the API gateway and the service mesh - compare with each other.
+        </p>
+
+        <p>
+          Both of these solutions in fact share the same building block - a proxy server.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4) building block.png"
+            alt="As more services are added, client libraries can get out of hand"
+          />
+        </div>
+
+        <h3>4.0) Proxy server - the building block</h3>
+
+        <p>
+          A proxy is simply a server that sits on the path of network traffic between two communicating machines, and intercepts all their requests and responses. These machines could represent a client sending a request to another server, or for our purposes, two internal services communicating within the same architecture.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4.0) proxy server can intercept.png"
+            alt="As more services are added, client libraries can get out of hand"
+          />
+        </div>
+
+        <p>
+          In the above diagram, `orders` does not send an HTTP request directly to `shipping`; instead, it addresses its request to a host belonging to `proxy` (i.e. `proxy.com`). In order for `proxy` to know that `orders` actually wants to send its request to `shipping`, `orders` must specify `shipping`’s host (i.e. `shipping.com`) in another part of the request e.g. in the `Host` header value.
+        </p>
+
+        <p>
+          When <code>proxy</code> receives a response back from <code>shipping</code>, it simply forwards the same response back to <code>orders</code>.
+        </p>
+
+        <h3>4.1) API gateway</h3>
+
+        <h4>4.1.1) An API gateway is a proxy server that intercepts all incoming requests from outside the system</h4>
+
+        <p>
+          At its core, an API gateway is simply a proxy server (more precisely, a ‘reverse proxy’). When used with microservices, one of its primary functions is to provide a stable API to clients and route client requests to the appropriate service.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4.1.1) API gateway proxies.png"
+            alt="An API gateway proxies all incoming requests into a system"
+          />
+        </div>
+
+        <p>
+          It is certainly possible to do without an API gateway. In such an architecture, whenever the client sends a request, it must already know which service to send the request to, and also the host and port of that service. This tightly couples the client with internal services, such that any newly added services, or updates to existing service APIs, must be deployed at the same time as updates in the client code [add reference: NGINX on API gateways]. Such an architecture can be difficult to manage, as clients cannot always be relied upon to update immediately (e.g. mobile apps cannot be easily forced to update); even if they can, doing so would still incur additional engineering that could be avoided.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4.1.1) without an API gateway.png"
+            alt="Without an API gateway, a client must know the host port and path of every service it needs to call"
+          />
+        </div>
+
+        <p>
+          With an API gateway, developers are largely free to update internal services while still providing a stable API to clients.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4.1.1) an API gateway provides.png"
+            alt="An API gateway provides a stable API for clients, even if services are upgraded, replicated, or moved internally"
+          />
+        </div>
+
+        <p>
+          In addition to routing requests, the API gateway also provides one place to handle many concerns that are shared between services, such as authentication, caching, rate-limiting, load-balancing and monitoring.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4.1.1) also provides.png"
+            alt="An API gateway als provides one place to manage other networking concerns"
+          />
+        </div>
+
+        <p>
+          In a way, an API gateway can be thought of as a receptionist at a large company. Any visitor does not necessarily have to know which employees are present in advance, or how different teams work together to complete specific tasks. Instead, they simply speak with the receptionist, who then decides, based on the visitor’s identity and stated purpose, which company employee to notify, and/or what access to grant to the visitor.
+        </p>
+
+        <h4>4.1.2) An API gateway is designed for client-server, not service-to-service, traffic</h4>
+
+        <p>
+          Let us revisit the challenges that were described back in section 3 [add anchor link]: 1) diagnosing faults in workflows that span multiple microservices, and 2) managing fault-handling logic that is similar across services.
+        </p>
+
+        <p>
+          If the API gateway already provides one place to manage networking concerns, perhaps it is already a sufficient solution to these challenges? For example, instead of deploying it as a ‘front proxy’ that sits in front of all services, we could deploy it in a different pattern than it was intended for - as a proxy that sits between services internally. Would this not already provide the one place where a log of all service-to-service requests and responses can be aggregated, and fault-handling logic like retries can be defined?
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4.1.2) Could we just.png"
+            alt="Could we just deploy an API gateway internally between services?"
+          />
+        </div>
+
+        <p>
+          In theory, this is certainly possible, but in practice, existing API gateway solutions are not ideal options for this.
+        </p>
+
+        <blockquote>
+          Optimized to handle [client-server] traffic at the edge of the data center, the API gateway ... is inefficient for the large volume of [service-to-service] traffic in distributed microservices environments: it has a large footprint (to maximize the solution’s appeal to customers with a wide range of use cases), can’t be containerized, and the constant communication with the database and a configuration server adds latency.
+          <cite><a href="https://www.nginx.com/blog/do-you-really-need-different-kinds-of-api-gateways-hint-no/">- NGINX, the maker of the popular open-source NGINX load balancer and web server</a></cite>
+        </blockquote>
+
+        <p>
+          In short, although the API gateway looks close to the solution we need, existing solutions on the market come built-in with many extra features that are designed for client-server traffic, making them a poor fit for managing service-to-service traffic.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/4.1.2) API gateways features.png"
+            alt="Could we just deploy an API gateway internally between services?"
+          />
+        </div>
+
+        <p>
+          That is not to say that a solution like an API gateway is completely out of the question. As we shall see in section 5 [add anchor link], the API gateway pattern was a major source of inspiration for Apex’s solution.
+        </p>
+
+
+
+
+
+--------------------
 
         <div class="img-wrapper">
           <img
@@ -340,6 +559,8 @@
           As a system scales even further, however, the monolith’s strengths can
           begin to hold it back.
         </p>
+
+        <h3>3.1) Microservices communicate over the network, which is unreliable and has latency</h3>
 
         <p class="strikethrough">
           While having all business logic in one codebase initially made the

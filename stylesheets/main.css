@@ -92,7 +92,7 @@ a:hover {
 }
 
 .integration:first-of-type {
-  background: var(--color-downy);
+  background: var(--color-alabaster);
   padding-top: 20px;
   padding-bottom: 40px;
 }
@@ -370,7 +370,7 @@ header h1 {
 }
 
 header p {
-  color: #1e4470;
+  color: #65c8d0;
   font-family: var(--font-family-header);
   font-size: 3.5rem;
   left: 50%;
