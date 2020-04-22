@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="en-US" prefix="og: http://opg.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="title" property="og:title" content="Apex" />
+
+    <meta
+      name="description"
+      property="og:description"
+      content="Crato is an open source framework for small web applications to easily deploy a centralized logging solution that maintains ownership of data"
+    />
+
+    <meta name="type" property="og:type" content="website" />
+
+    <meta
+      name="url"
+      property="og:url"
+      content="https://crato-logging.github.io/"
+    />
+
+    <meta
+      name="image"
+      property="og:image"
+      content="images/logos/apex-logo.png"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="author"
+      content="Faazil Shaikh, Kurth O'Connor, Alex Soloviev"
+    />
+
+    <title>APEX</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/images/icons/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/images/icons/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/images/icons/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/images/icons/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- <style>reset</style> -->
+
+    <link rel="stylesheet" href="stylesheets/reset.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/gruvbox-dark.min.css"
+      charset="utf-8"
+    />
+
+    <!-- <style></style> -->
+
+    <link rel="stylesheet" href="stylesheets/main.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- <script></script> -->
+
+    <script src="javascripts/application.js"></script>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <div class="logo-links">
+      <p id="apex-logo">APEX</p>
+
+      <a href="https://github.com/crato-logging/crato" target="_blank">
+        <img
+          src="images/logos/github_black.png"
+          alt="github logo"
+          id="github-logo"
+        />
+      </a>
+    </div>
+    <a id="toTop-link" href="#" target="_blank">
+      <img
+        src="images/logos/back-to-top.png"
+        alt="Back to top"
+        id="toTop-logo"
+      />
+    </a>
+    <nav id="site-navigation">
+      <ul>
+        <li>
+          <a href="#home" id="home-link">HOME</a>
+        </li>
+
+        <li>
+          <a href="#case-study" id="case-study-link">CASE STUDY</a>
+
+          <nav id="case-study-mobile">
+            <ul></ul>
+          </nav>
+        </li>
+
+        <li>
+          <a href="#our-team" id="our-team-link">OUR TEAM</a>
+        </li>
+      </ul>
+    </nav>
+
+    <header id="home">
+      <h1>
+        <img src="images/logos/apex-logo.png" alt="Apex logo" />
+
+        <p>easy log management for small applications</p>
+      </h1>
+    </header>
+
+    <section class="integration">
+      <div class="box">
+        <img src="images/crato_horizontal.png" alt="best practices" />
+      </div>
+
+      <article class="box">
+        <div class="text-box">
+          <h1>Centralize your logs</h1>
+
+          <p>
+            Crato is an open-source framework for small applications to easily
+            deploy a centralized logging solution that maintains ownership of
+            data.
+          </p>
+
+          <!-- <a class="button" href="#case-study">Learn More</a> -->
+        </div>
+      </article>
+    </section>
+
+    <section class="integration">
+      <article class="box">
+        <div class="text-box">
+          <h1>Easy To Deploy</h1>
+
+          <p>
+            Get started with a few simple commands.
+          </p>
+
+          <!-- <a class="button" href="#case-study">Learn More</a> -->
+        </div>
+      </article>
+      <div class="box">
+        <img
+          id="banner-deploy"
+          src="images/diagrams/gifs/crato_docker_deploy.gif"
+          class="softened"
+          alt="Gif of crato's install-kafka and deploy commands"
+        />
+      </div>
+    </section>
+
+    <main>
+      <section id="case-study">
+        <h1>Apex: API proxy for microservices</h1>
+        <p class="subheader">
+          One place to log and control service-to-service traffic
+        </p>
+
+        <div id="side-nav">
+          <img src="images/logos/apex-logo.png" alt="Apex logo" />
+        </div>
+
+        <nav>
+          <ul></ul>
+        </nav>
+
+        <h2 id="introduction">1) Introduction</h2>
+
+        <p>
+          Apex is an API proxy for microservices. It provides one place to log
+          and control service-to-service traffic.
+        </p>
+
+        <p>
+          Apex is designed for small teams that have just begun migrating from a
+          monolith to a microservices architecture. While microservices bring
+          many benefits, chief among them greater scalability, they also bring a
+          host of new challenges by relying on the network for
+          service-to-service communication. As network communication is
+          unreliable and has latency, faults become more likely to occur,
+          leading teams to have to spend more time diagnosing network-related
+          faults, and writing pre-emptive fault-handling logic within each
+          service.
+        </p>
+
+        <p>
+          Some current solutions exist to help teams perform these tasks faster.
+          Client libraries can be imported into each service’s code to automate
+          networking concerns, an API gateway can be inserted in front of all
+          services to handle incoming traffic, and for large systems, a service
+          mesh is often deployed to abstract away networking concerns from
+          services altogether. These are all valid solutions, designed for
+          different users, and with their own set of trade-offs.
+        </p>
+
+        <p>
+          For a small team running their first few microservices, however, none
+          of the existing solutions provide the right set of trade-offs:
+          optimized for service-to-service traffic, and ease of deployment and
+          operation, over high availability and scalability. These are the
+          trade-offs that underpinned Apex’s design.
+        </p>
+
+        <p>
+          With Apex, a user can view the logs for all service-to-service traffic
+          by querying just one table, while grouping all requests and responses
+          that belong to the same workflow. They can also define and update
+          traffic rules such as the number of times to retry a request in one
+          configuration store.
+        </p>
+
+        <h2 id="microservices">2) Microservices</h2>
+
+        <p>
+          To understand how Apex makes it easier to work with microservices, it
+          is important to first understand what microservices are. This, in
+          turn, requires understanding that the microservices architecture is a
+          choice, the other choice being, of course, a monolith.
+        </p>
+
+        <h3>2.1) Microservices are an alternative to monoliths</h3>
+
+        <p>
+          In a monolithic architecture, there is typically just one application
+          server (the ‘monolith’) that holds all the business logic. In some
+          cases, this application server alone is already sufficient to serve an
+          application to a user (e.g. a website with just static HTML). More
+          likely though, the application will also generate some user data that
+          must be persisted, and so the monolithic application server will also
+          transfer data to and from a database server.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/monolilth.jpg" alt="Monolith" />
+        </div>
+
+        <p>
+          Consider the above example of a monolithic system that serves an
+          e-commerce store to users. The business logic in the app server can be
+          organized into classes or modules (precise terminology depends on the
+          language used by the app), or more generally, ‘subsystems’, that
+          encapsulate related functionality e.g. manipulating customer data,
+          checking and updating inventory, generating shipping instructions.
+          These subsystems can each expose an interface of methods, or more
+          generally ‘behaviors’, that can be invoked by each other to facilitate
+          communication between them.
+        </p>
+
+        <p>
+          As method or function calls take place within the same running process
+          in memory, they are reliable and very fast, usually returning within a
+          few milliseconds.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/method_calls.jpg" alt="Method calls" />
+        </div>
+
+        <p>
+          Another possible monolithic architecture is to further separate the
+          data store into multiple database servers. For example, the
+          <code>customers</code> subsystem and the <code>orders</code> subsystem can be connected to
+          separate database servers, if that is deemed to be e.g. more flexible,
+          or more scalable.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/monolith_with_multiple_databases.jpg"
+            alt="Monolith with multiple databases"
+          />
+        </div>
+
+        <p>
+          A simple analogy for a monolithic application is a small business run
+          by just one owner. The owner has to do everything - sales and
+          marketing, procurement, operations, finance, IT. There may be one
+          central log book that keeps track of all business data, or the owner
+          could use several ‘persistent data stores’ in parallel e.g. CRM system
+          for sales data, accounting software for financial data, ERP system for
+          inventory data, pen and paper for tax filings.
+        </p>
+
+        <h3>2.2) Monoliths are often simple to manage, but less scalable</h3>
+
+        <p>
+          Every novice programmer probably built their first project as a
+          monolith, and for good reason - monoliths are <span
+          class="strikethrough">simpler to develop</span>, simpler to deploy and
+          simpler to scale.
+        </p>
+
+        <p class="strikethrough">
+          For a small application, having all the business logic in the same
+          codebase simplifies development. A new developer only has to
+          understand that one codebase, and so can ramp up and become productive
+          relatively quickly. With subsystems communicating over reliable and
+          fast method calls, tests are also straightforward to write, and fast
+          to run.
+        </p>
+
+        <p>
+          Deploying a monolith is made simpler by the relatively small number of
+          components that must be made live. For our e-commerce example app, all
+          we have to deploy are two components: an app server running our app
+          code, and a database server running our database of choice. We can
+          further simplify this by using a platform as a service (PaaS) solution
+          such as Heroku, which enables us to deploy a small monolith with just
+          a handful of commands.
+        </p>
+
+        <p>
+          Similarly, scaling is simpler because there are fewer components to
+          scale. With our e-commerce example, we have the choice of ‘scaling up’
+          - deploying our app to a more powerful server - or ‘scaling out’ -
+          deploying one or more replicas of our app to more servers. One way or
+          another, the fewer components we have deployed, the less work it takes
+          to scale them.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/scaling_a_monolith.jpg"
+            alt="Scaling a monolith"
+          />
+        </div>
+
+        <p>
+          As a system scales even further, however, the monolith’s strengths can
+          begin to hold it back.
+        </p>
+
+        <p class="strikethrough">
+          While having all business logic in one codebase initially made the
+          system easier to understand, this is no longer true when the codebase
+          balloons to millions of lines of code. As new developers are brought
+          on for just one or two subsystems, they will have little choice but to
+          parse through the rest of the codebase as they make new changes and
+          work to debug then pre-empt unexpected ripple effects. This lengthens
+          the time taken for new developers to become productive, and the
+          problem only gets worse as the system inevitably scales to ever more
+          lines of code.
+        </p>
+
+        <p>
+          Having just one codebase places constraints on technology choices. If
+          the app was initially implemented in Ruby, but now finds itself in
+          need of data analysis capabilities that are already available in the
+          Python ecosystem, it is not possible to just import a Python package.
+          The only alternative, if no equivalent gems exist in the Ruby
+          ecosystem, would be to build them in-house. This costs extra
+          development time.
+        </p>
+
+        <p>
+          The monolith’s simple deployment can turn into slower deployment. One
+          codebase may be simpler to deploy, but it also means that any updates,
+          however small, require the entire app to be redeployed. As each
+          redeploy costs a certain amount of overhead, it is typically
+          impractical to redeploy too frequently. Usually, teams gravitate
+          toward a ‘release train’<sup><a href="#footnote-1">1</a></sup
+          > [<a
+          href=>https://www.thoughtworks.com/radar/techniques/release-train</a>],
+          where redeploys are done on a fixed schedule, and any feature that is
+          ready earlier - and any business benefits that might come with it -
+          must wait until the next redeploy.
+        </p>
+
+        <p>
+          A similar inflexibility is seen when scaling out a monolith. Recall
+          our e-commerce example app - it is expected that each subsystem will
+          reach its capacity limits at a different pace. Suppose <code>orders</code> is the
+          first subsystem to flirt with its capacity limit, at which point its
+          developer decides to replicate the subsystem rather than upgrade to a
+          more powerful server. The only way to do this would be to replicate
+          the entire app i.e. deploy another replica of the entire app,
+          containing every one of its subsystems and not just <code>orders</code>, to
+          another server - even if none of the other subsystems are operating at
+          or near capacity. That is not an efficient use of compute resources.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/replicating_monolith.jpg"
+            alt="Replicating a monolith"
+          />
+        </div>
+
+        <h3>
+          2.3) Microservices architecture organizes business logic into multiple
+          independently deployed ‘services’
+        </h3>
+
+        <h2 id="future-plans">8 Future Plans</h2>
+
+        <ul>
+          <li>Additional visualization/monitoring integration</li>
+          <li>
+            Security
+            <ul>
+              <li>option for LAN</li>
+              <li>client-server communication with TLS</li>
+            </ul>
+          </li>
+          <li>Compression option for large messages</li>
+          <li>Add robust & automated testing</li>
+        </ul>
+
+        <section id="footnotes">
+          <h2 id="references">9 References</h2>
+
+          <ol>
+            <li id="footnote-1">
+              <a href="https://www.thoughtworks.com/radar/techniques/release-train" target="_blank"
+                >https://www.thoughtworks.com/radar/techniques/release-train</a
+              >
+            </li>
+          </ol>
+          <!--
+
+          <h5>9.2 Resources</h5>
+
+          <ol>
+
+            <li><a
+
+                href="https://www.manning.com/books/serverless-architectures-on-aws"
+
+                target="_blank">Serverless Architecture on AWS</a>
+
+            </li>
+
+          </ul>
+
+-->
+        </section>
+      </section>
+    </main>
+
+    <section id="our-team">
+      <h1>Our Team</h1>
+
+      <p>
+        We are looking for opportunities. If you liked what you saw and want to
+        talk more, please reach out!
+      </p>
+
+      <ul>
+        <li class="individual">
+          <img src="https://github.com/4g3m.png?" alt="Faazil Shaikh" />
+
+          <h3>Faazil Shaikh</h3>
+
+          <p>San Francisco, CA</p>
+
+          <ul class="social-icons">
+            <li>
+              <a href="mailto:faazil.shaikh@gmail.com" target="">
+                <img src="images/icons/email_icon.png" alt="email" />
+              </a>
+            </li>
+
+            <li>
+              <a href="https://fshaikh.com" target="_blank">
+                <img src="images/icons/website_icon.png" alt="website" />
+              </a>
+            </li>
+
+            <li>
+              <a href="http://bit.ly/2NpWXS6" target="_blank">
+                <img src="images/icons/linked_in_icon.png" alt="linkedin" />
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="individual">
+          <img
+            src="https://github.com/jkurthoconnor.png"
+            alt="Kurth O'Connor"
+          />
+
+          <h3>Kurth O'Connor</h3>
+
+          <p>New York, NY</p>
+
+          <ul class="social-icons">
+            <li>
+              <a href="mailto:kurth@kurthoconnor.com" target="">
+                <img src="images/icons/email_icon.png" alt="email" />
+              </a>
+            </li>
+
+            <li>
+              <a href="http://kurthoconnor.com" target="_blank">
+                <img src="images/icons/website_icon.png" alt="website" />
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.linkedin.com/in/kurth-o-connor-01986a169"
+                target="_blank"
+              >
+                <img src="images/icons/linked_in_icon.png" alt="linkedin" />
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="individual">
+          <img src="https://github.com/alex-solo.png" alt="Alex Soloviev" />
+
+          <h3>Alex Soloviev</h3>
+
+          <p>Toronto, Canada</p>
+
+          <ul class="social-icons">
+            <li>
+              <a href="mailto:alex.soloviev@gmail.com" target="">
+                <img src="images/icons/email_icon.png" alt="email" />
+              </a>
+            </li>
+
+            <li>
+              <a href="https://alex-solo.github.io" target="_blank">
+                <img src="images/icons/website_icon.png" alt="website" />
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.linkedin.com/in/alex-soloviev-61155a185/"
+                target="_blank"
+              >
+                <img src="images/icons/linked_in_icon.png" alt="linkedin" />
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
