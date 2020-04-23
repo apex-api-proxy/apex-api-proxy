@@ -72,409 +72,411 @@
   </head>
 
   <body>
-  <div class="logo-links">
-    <p id="apex-logo">APEX</p>
-    <!-- <a href="https://github.com/apex-api-proxy" target="_blank">
-      <img src="images/logos/apex-logo.png" alt="Apex logo" id="apex-logo" />
-    </a> -->
+    <div class="logo-links">
+      <p id="apex-logo">APEX</p>
+      <!-- <a href="https://github.com/apex-api-proxy" target="_blank">
+        <img src="images/logos/apex-logo.png" alt="Apex logo" id="apex-logo" />
+      </a> -->
 
-    <a href="https://github.com/apex-api-proxy" target="_blank">
-      <img src="images/logos/github_black.png" alt="github logo" id="github-logo" />
+      <a href="https://github.com/apex-api-proxy" target="_blank">
+        <img src="images/logos/github_black.png" alt="github logo" id="github-logo" />
+      </a>
+    </div>
+    <a id="toTop-link" href="#" target="_blank">
+      <img src="images/logos/back-to-top.png" alt="Back to top" id="toTop-logo" />
     </a>
-  </div>
-  <a id="toTop-link" href="#" target="_blank">
-    <img src="images/logos/back-to-top.png" alt="Back to top" id="toTop-logo" />
-  </a>
-  <nav id="site-navigation">
-    <ul>
-      <li>
-        <a href="#home" id="home-link">HOME</a>
-      </li>
+    <nav id="site-navigation">
+      <ul>
+        <li>
+          <a href="#home" id="home-link">HOME</a>
+        </li>
 
-      <li>
-        <a href="#case-study" id="case-study-link">CASE STUDY</a>
+        <li>
+          <a href="#case-study" id="case-study-link">CASE STUDY</a>
 
-        <nav id="case-study-mobile">
+          <nav id="case-study-mobile">
+            <ul></ul>
+          </nav>
+        </li>
+
+        <li>
+          <a href="#our-team" id="our-team-link">OUR TEAM</a>
+        </li>
+      </ul>
+    </nav>
+
+    <header id="home">
+      <h1>
+        <img src="images/logos/apex-logo.png" alt="Apex logo" />
+
+        <div>
+          <p>API proxy for logging and controlling traffic between microservices</p>
+        </div>
+      </h1>
+    </header>
+
+    <section class="integration">
+      <div class="box">
+        <img id="banner-deploy" src="images/diagrams//gifs/apex_query_logs_2.gif" alt="best practices" />
+      </div>
+
+      <article class="box">
+        <div class="text-box">
+          <h1>Centralized logging and tracing for your microservices</h1>
+
+          <p>
+            Without any additional client libraries in your service code
+          </p>
+
+          <!-- <a class="button" href="#case-study">Learn More</a> -->
+        </div>
+      </article>
+    </section>
+
+    <section class="integration">
+      <article class="box">
+        <div class="text-box">
+          <h1>Manage custom fault-handling logic such as retries</h1>
+
+          <p>
+            Define both global traffic rules and service-specific overrides in one place
+          </p>
+
+          <!-- <a class="button" href="#case-study">Learn More</a> -->
+        </div>
+      </article>
+
+      <div class="box">
+        <img id="banner-deploy" src="images/diagrams/gifs/apex_add_service.gif" class="softened"
+          alt="Deploy Apex proxy with a few commands" />
+      </div>
+    </section>
+
+    <section class="integration">
+      <div class="box">
+        <img id="banner-deploy" src="images/diagrams/gifs/apex_deploy_2.gif" class="softened"
+          alt="Deploy Apex proxy with a few commands" />
+      </div>
+
+      <article class="box">
+        <div class="text-box">
+          <h1>Deploy to Docker containers with a few commands</h1>
+
+          <p>
+            No changes required in how your services are currently deployed
+          </p>
+
+          <!-- <a class="button" href="#case-study">Learn More</a> -->
+        </div>
+      </article>
+    </section>
+
+    <main>
+      <section id="case-study">
+        <h1>Case Study</h1>
+        <!-- <p class="subheader">
+          One place to log and control service-to-service traffic
+        </p> -->
+
+        <div id="side-nav">
+          <img src="images/logos/apex-logo.png" alt="Apex logo" />
+        </div>
+
+        <nav>
           <ul></ul>
         </nav>
-      </li>
 
-      <li>
-        <a href="#our-team" id="our-team-link">OUR TEAM</a>
-      </li>
-    </ul>
-  </nav>
-
-  <header id="home">
-    <h1>
-      <img src="images/logos/apex-logo.png" alt="Apex logo" />
-
-      <p>API proxy for logging and controlling traffic between microservices</p>
-    </h1>
-  </header>
-
-  <section class="integration">
-    <div class="box">
-      <img id="banner-deploy" src="images/diagrams//gifs/apex_query_logs_2.gif" alt="best practices" />
-    </div>
-
-    <article class="box">
-      <div class="text-box">
-        <h1>Centralized logging and tracing for your microservices</h1>
+        <h2 id="introduction">1) Introduction</h2>
 
         <p>
-          Without any additional client libraries in your service code
+          Apex is an API proxy for microservices. It provides one place to log and control service-to-service traffic.
         </p>
-
-        <!-- <a class="button" href="#case-study">Learn More</a> -->
-      </div>
-    </article>
-  </section>
-
-  <section class="integration">
-    <article class="box">
-      <div class="text-box">
-        <h1>Manage custom fault-handling logic such as retries</h1>
 
         <p>
-          Define both global traffic rules and service-specific overrides in one place
+          Apex is designed for small teams that have just begun migrating from a monolith to a microservices architecture.
+          While microservices bring many benefits such as faster deployment cycles, they also bring a host of new
+          challenges by relying on the network for service-to-service communication. As network communication is
+          unreliable and has latency, faults become more likely to occur, leading teams to have to spend more time
+          diagnosing network-related faults, and writing pre-emptive fault-handling logic within each service. [1]
         </p>
-
-        <!-- <a class="button" href="#case-study">Learn More</a> -->
-      </div>
-    </article>
-
-    <div class="box">
-      <img id="banner-deploy" src="images/diagrams/gifs/apex_add_service.gif" class="softened"
-        alt="Deploy Apex proxy with a few commands" />
-    </div>
-  </section>
-
-  <section class="integration">
-    <div class="box">
-      <img id="banner-deploy" src="images/diagrams/gifs/apex_deploy_2.gif" class="softened"
-        alt="Deploy Apex proxy with a few commands" />
-    </div>
-
-    <article class="box">
-      <div class="text-box">
-        <h1>Deploy to Docker containers with a few commands</h1>
 
         <p>
-          No changes required in how your services are currently deployed
+          Some current solutions exist to help teams perform these tasks faster. Client libraries can be imported into
+          each service’s code to automate networking concerns, an API gateway can be inserted in front of all services to
+          handle incoming traffic, and for large systems, a service mesh is often deployed to abstract away networking
+          concerns from services altogether. These are all valid solutions with their own set of trade-offs.
         </p>
 
-        <!-- <a class="button" href="#case-study">Learn More</a> -->
-      </div>
-    </article>
-  </section>
+        <p>
+          For a small team running their first few microservices, however, none of the existing solutions provide the
+          right set of trade-offs: optimized for service-to-service traffic, and ease of deployment and operation, over
+          high availability and scalability. These are the trade-offs that underpinned Apex’s design.
+        </p>
 
-  <main>
-    <section id="case-study">
-      <h1>Case Study</h1>
-      <!-- <p class="subheader">
-        One place to log and control service-to-service traffic
-      </p> -->
+        <p>
+          With Apex, a user can view the logs for all service-to-service traffic by querying just one table, while
+          grouping all requests and responses that belong to the same workflow. They can also define and update traffic
+          rules such as the number of times to retry a request in one configuration store.
+        </p>
 
-      <div id="side-nav">
-        <img src="images/logos/apex-logo.png" alt="Apex logo" />
-      </div>
+        <h2 id="microservices">2) Microservices</h2>
 
-      <nav>
-        <ul></ul>
-      </nav>
+        <p>
+          To understand how Apex makes it easier to work with microservices, it is important to first understand what
+          microservices are. This, in turn, requires understanding that the microservices architecture is a choice, the
+          other choice being, of course, a monolith.
+        </p>
 
-      <h2 id="introduction">1) Introduction</h2>
+        <h3>2.1) Monolithic architecture</h3>
 
-      <p>
-        Apex is an API proxy for microservices. It provides one place to log and control service-to-service traffic.
-      </p>
+        <p>
+          In a monolithic architecture, there is typically just one application server (the ‘monolith’) that holds all the
+          business logic. In some cases, this application server alone is already sufficient to serve an application to a
+          user (e.g. a website with just static HTML). More likely though, the application will also generate some user
+          data that must be persisted, and so the monolithic application server will also transfer data to and from a
+          database server.
+        </p>
 
-      <p>
-        Apex is designed for small teams that have just begun migrating from a monolith to a microservices architecture.
-        While microservices bring many benefits such as faster deployment cycles, they also bring a host of new
-        challenges by relying on the network for service-to-service communication. As network communication is
-        unreliable and has latency, faults become more likely to occur, leading teams to have to spend more time
-        diagnosing network-related faults, and writing pre-emptive fault-handling logic within each service. [1]
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.1) Monolith.png" alt="Monolith" />
+        </div>
 
-      <p>
-        Some current solutions exist to help teams perform these tasks faster. Client libraries can be imported into
-        each service’s code to automate networking concerns, an API gateway can be inserted in front of all services to
-        handle incoming traffic, and for large systems, a service mesh is often deployed to abstract away networking
-        concerns from services altogether. These are all valid solutions with their own set of trade-offs.
-      </p>
+        <p>
+          Consider the above example of a monolithic system that serves an e-commerce store to users. The business logic
+          in the app server can be organized into classes or modules, or more generally, ‘subsystems’, that encapsulate
+          related functionality e.g. manipulating customer data, checking and updating inventory, creating shipments.
+          These subsystems can each expose an interface of methods, or more generally ‘behaviors’, that can be invoked by
+          each other to facilitate communication between them.
+        </p>
 
-      <p>
-        For a small team running their first few microservices, however, none of the existing solutions provide the
-        right set of trade-offs: optimized for service-to-service traffic, and ease of deployment and operation, over
-        high availability and scalability. These are the trade-offs that underpinned Apex’s design.
-      </p>
+        <p>
+          As method or function calls take place within the same running process in memory, they are reliable and very
+          fast, with latencies often measured in microseconds [2].
+        </p>
 
-      <p>
-        With Apex, a user can view the logs for all service-to-service traffic by querying just one table, while
-        grouping all requests and responses that belong to the same workflow. They can also define and update traffic
-        rules such as the number of times to retry a request in one configuration store.
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.1) In-process method calls.png"
+            alt="In-process method calls are reliable and fast" />
+        </div>
 
-      <h2 id="microservices">2) Microservices</h2>
+        <p>
+          Another possible monolithic architecture is to further decouple the data store for each subsystem, by separating
+          it into multiple database servers. For example, the <code>customers</code> subsystem and the <code>orders</code>
+          subsystem can be connected to separate database servers, if that is deemed to be e.g. more flexible or scalable
+          for a particular need.
+        </p>
 
-      <p>
-        To understand how Apex makes it easier to work with microservices, it is important to first understand what
-        microservices are. This, in turn, requires understanding that the microservices architecture is a choice, the
-        other choice being, of course, a monolith.
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.1) Monolith with multiple databases.png" alt="Monolith with multiple databases" />
+        </div>
 
-      <h3>2.1) Monolithic architecture</h3>
+        <p>
+          A simple analogy for a monolithic application is a small business run by just one owner. The owner has to do
+          everything - sales and marketing, procurement, operations, finance, IT. There may be one central log book that
+          keeps track of all business data, or the owner could use several ‘persistent data stores’ in parallel e.g. CRM
+          system for sales data, accounting software for financial data, ERP system for inventory data, pen and paper for
+          tax filings.
+        </p>
 
-      <p>
-        In a monolithic architecture, there is typically just one application server (the ‘monolith’) that holds all the
-        business logic. In some cases, this application server alone is already sufficient to serve an application to a
-        user (e.g. a website with just static HTML). More likely though, the application will also generate some user
-        data that must be persisted, and so the monolithic application server will also transfer data to and from a
-        database server.
-      </p>
+        <h3>2.2) Microservices architecture</h3>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.1) Monolith.png" alt="Monolith" />
-      </div>
+        <p>
+          The microservices architecture differs from the monolith in two major ways. First, subsystems are decoupled even
+          further. Each subsystem is deployed independently to its own app server as a standalone ‘application’, or
+          ‘service’, and the current best practice is for every service to have its own database [3].
+        </p>
 
-      <p>
-        Consider the above example of a monolithic system that serves an e-commerce store to users. The business logic
-        in the app server can be organized into classes or modules, or more generally, ‘subsystems’, that encapsulate
-        related functionality e.g. manipulating customer data, checking and updating inventory, creating shipments.
-        These subsystems can each expose an interface of methods, or more generally ‘behaviors’, that can be invoked by
-        each other to facilitate communication between them.
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.2) Microservices with multiple databases.png"
+            alt="Monolith architecture vs microservices architecture" />
+        </div>
 
-      <p>
-        As method or function calls take place within the same running process in memory, they are reliable and very
-        fast, with latencies often measured in microseconds [2].
-      </p>
+        <p>
+          Secondly, subsystems now communicate over the network via HTTP requests, rather than through in-process method
+          invocations. So for example, if our <code>orders</code> service needs to create a new shipment, it might do this
+          by sending a <code>POST</code> request to the <code>/shipments</code> endpoint of the <code>shipping</code>
+          service, and attaching any other relevant information in the request body.
+        </p>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.1) In-process method calls.png"
-          alt="In-process method calls are reliable and fast" />
-      </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.2) Microservices communicating over the network.png"
+            alt="Microservices communicate over the network" />
+        </div>
 
-      <p>
-        Another possible monolithic architecture is to further decouple the data store for each subsystem, by separating
-        it into multiple database servers. For example, the <code>customers</code> subsystem and the <code>orders</code>
-        subsystem can be connected to separate database servers, if that is deemed to be e.g. more flexible or scalable
-        for a particular need.
-      </p>
+        <p>
+          Going with the same analogy of a small business, the microservices architecture is comparable to a small team of
+          several members (or ‘services’) who each specialize in one function. For example, these could include a
+          salesperson, a marketer, an operations manager, accountant/bookkeeper and an IT manager. Now,
+          function-to-function communication no longer happens in the owner’s head (or ‘in-process’); instead, different
+          team members must communicate with each other in person, on the phone or by email (or ‘over the network’) to get
+          things done.
+        </p>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.1) Monolith with multiple databases.png" alt="Monolith with multiple databases" />
-      </div>
+        <p>
+          As we shall see, the use of the network for communication between subsystems is the key enabler for many of the
+          benefits of the microservices architecture, but also the main culprit behind many of its drawbacks.
+        </p>
 
-      <p>
-        A simple analogy for a monolithic application is a small business run by just one owner. The owner has to do
-        everything - sales and marketing, procurement, operations, finance, IT. There may be one central log book that
-        keeps track of all business data, or the owner could use several ‘persistent data stores’ in parallel e.g. CRM
-        system for sales data, accounting software for financial data, ERP system for inventory data, pen and paper for
-        tax filings.
-      </p>
+        <h3>2.3) Microservices benefits</h3>
 
-      <h3>2.2) Microservices architecture</h3>
+        <p>
+          A first benefit of microservices is a wider choice of technologies for service developers. [4] The network
+          boundaries between services free them from having to use the same technology stack. As long as each service
+          maintains a stable network interface, or API, for other services talking to it, it is free to choose the
+          language or framework that is most optimal for implementing its business logic.
+        </p>
 
-      <p>
-        The microservices architecture differs from the monolith in two major ways. First, subsystems are decoupled even
-        further. Each subsystem is deployed independently to its own app server as a standalone ‘application’, or
-        ‘service’, and the current best practice is for every service to have its own database [3].
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.3) Microservices with different stacks.png"
+            alt="Microservices can use different technologies" />
+        </div>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.2) Microservices with multiple databases.png"
-          alt="Monolith architecture vs microservices architecture" />
-      </div>
+        <p>
+          Arguably the most defining benefit, though, is the option to deploy subsystems independently of each other. [5]
+          With subsystems now deployed to independent services that each have a smaller scope, redeploying any one
+          subsystem incurs less overhead and so it becomes practical to redeploy each service more frequently. This
+          enables teams to ship new features faster and reap the corresponding business benefits sooner.
+        </p>
 
-      <p>
-        Secondly, subsystems now communicate over the network via HTTP requests, rather than through in-process method
-        invocations. So for example, if our <code>orders</code> service needs to create a new shipment, it might do this
-        by sending a <code>POST</code> request to the <code>/shipments</code> endpoint of the <code>shipping</code>
-        service, and attaching any other relevant information in the request body.
-      </p>
+        <p>
+          More concretely, in our e-commerce example app, as soon as a feature in the <code>orders</code> service is
+          ready, <code>orders</code> can be redeployed. As long as <code>orders</code>’s API remains the same before and
+          after the deployment, other services need not even know that a redeployment took place. On the other hand, if
+          <code>notifications</code>’s logic rarely changes, then that service can simply continue to operate untouched.
+        </p>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.2) Microservices communicating over the network.png"
-          alt="Microservices communicate over the network" />
-      </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.3) Redeploying one microservice.png"
+            alt="Each microservice can be independently redeployed" />
+        </div>
 
-      <p>
-        Going with the same analogy of a small business, the microservices architecture is comparable to a small team of
-        several members (or ‘services’) who each specialize in one function. For example, these could include a
-        salesperson, a marketer, an operations manager, accountant/bookkeeper and an IT manager. Now,
-        function-to-function communication no longer happens in the owner’s head (or ‘in-process’); instead, different
-        team members must communicate with each other in person, on the phone or by email (or ‘over the network’) to get
-        things done.
-      </p>
+        <p>
+          Independent redeployment also enables independent scaling. [6] If our <code>orders</code> service is the first
+          to reach its capacity, then we can simply upgrade <code>orders</code> to a more powerful server or deploy more
+          replicas of <code>orders</code>, without having to also replicate every other service. Yet again, as long as the
+          replicated <code>orders</code> service retains the same API before and after scaling, the other services can
+          continue to operate in the same way as though nothing happened. The result is fewer large-scale system-wide
+          redeployments and higher utilisation of provisioned resources, leading to savings in engineering time and costs.
+        </p>
 
-      <p>
-        As we shall see, the use of the network for communication between subsystems is the key enabler for many of the
-        benefits of the microservices architecture, but also the main culprit behind many of its drawbacks.
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/2.3) Scaling microservices.png" alt="Each microservice can be independently scaled" />
+        </div>
 
-      <h3>2.3) Microservices benefits</h3>
+        <h2 id="microservices">3) Microservices challenges</h2>
 
-      <p>
-        A first benefit of microservices is a wider choice of technologies for service developers. [4] The network
-        boundaries between services free them from having to use the same technology stack. As long as each service
-        maintains a stable network interface, or API, for other services talking to it, it is free to choose the
-        language or framework that is most optimal for implementing its business logic.
-      </p>
+        <p>
+          We have now seen how the network boundaries between microservices result in several major benefits over the
+          monolithic architecture. The network, however, comes with baggage, and relying heavily on it to communicate
+          between subsystems introduces an entire new dimension of challenges.
+        </p>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.3) Microservices with different stacks.png"
-          alt="Microservices can use different technologies" />
-      </div>
+        <h3>3.1) Network unreliability and latency</h3>
 
-      <p>
-        Arguably the most defining benefit, though, is the option to deploy subsystems independently of each other. [5]
-        With subsystems now deployed to independent services that each have a smaller scope, redeploying any one
-        subsystem incurs less overhead and so it becomes practical to redeploy each service more frequently. This
-        enables teams to ship new features faster and reap the corresponding business benefits sooner.
-      </p>
+        <p>
+          Recall that in a monolith, subsystems are simply classes or modules that communicate through method invocations
+          within the same process in memory. In contrast, in a microservices architecture, equivalent calls are now sent
+          between services using HTTP requests and responses over the network.
+        </p>
 
-      <p>
-        More concretely, in our e-commerce example app, as soon as a feature in the <code>orders</code> service is
-        ready, <code>orders</code> can be redeployed. As long as <code>orders</code>’s API remains the same before and
-        after the deployment, other services need not even know that a redeployment took place. On the other hand, if
-        <code>notifications</code>’s logic rarely changes, then that service can simply continue to operate untouched.
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/3.1) In-process method calls vs network hops.png"
+            alt="Method calls are fast, but network hops are (relatively) slow" />
+        </div>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.3) Redeploying one microservice.png"
-          alt="Each microservice can be independently redeployed" />
-      </div>
+        <p>
+          As any sufficiently heavy user of the internet will have experienced, the network is unreliable and has latency.
+          That is, networks can disconnect for any number of reasons, and network traffic can sometimes take a long time
+          to reach its destination. Even though in production, services are likely deployed to state-of-the-art data
+          centers run by large cloud providers, network faults still can and do occur.
+        </p>
 
-      <p>
-        Independent redeployment also enables independent scaling. [6] If our <code>orders</code> service is the first
-        to reach its capacity, then we can simply upgrade <code>orders</code> to a more powerful server or deploy more
-        replicas of <code>orders</code>, without having to also replicate every other service. Yet again, as long as the
-        replicated <code>orders</code> service retains the same API before and after scaling, the other services can
-        continue to operate in the same way as though nothing happened. The result is fewer large-scale system-wide
-        redeployments and higher utilisation of provisioned resources, leading to savings in engineering time and costs.
-      </p>
+        <div class="img-wrapper">
+          <img src="images/diagrams/3.1) Network faults.png" alt="Network faults" />
+        </div>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/2.3) Scaling microservices.png" alt="Each microservice can be independently scaled" />
-      </div>
+        <p>
+          Such faults introduce a whole new class of problems for developers - not only do they have to ensure their
+          service code is bug-free, now they also have to diagnose unexpected network faults, and add logic to service
+          code that preempts network faults by providing compensating behaviors (e.g. displaying a ‘network down’ page to
+          users, or retrying the same request a few seconds later).
+        </p>
 
-      <h2 id="microservices">3) Microservices challenges</h2>
+        <h3>3.2) Diagnosing network faults</h3>
 
-      <p>
-        We have now seen how the network boundaries between microservices result in several major benefits over the
-        monolithic architecture. The network, however, comes with baggage, and relying heavily on it to communicate
-        between subsystems introduces an entire new dimension of challenges.
-      </p>
+        <p>
+          Diagnosing a network fault can be especially cumbersome when a single workflow passes through multiple services.
+          Consider a user placing an order on our e-commerce example app, and suppose the <code>orders</code> service
+          needs to first update inventory in <code>inventory</code>, then create a shipment in <code>shipping</code>. This
+          one workflow involves 3 services with at least 3 network hops between them. If the order placement eventually
+          fails, what caused that to happen?
+        </p>
 
-      <h3>3.1) Network unreliability and latency</h3>
+        <div class="img-wrapper">
+          <img src="images/diagrams/3.2) Network fault in multi-service workflow.png"
+            alt="Network fault in multi-service workflow" />
+        </div>
 
-      <p>
-        Recall that in a monolith, subsystems are simply classes or modules that communicate through method invocations
-        within the same process in memory. In contrast, in a microservices architecture, equivalent calls are now sent
-        between services using HTTP requests and responses over the network.
-      </p>
+        <p>
+          To find out, a developer would have to trace the user’s initial <code>POST</code> request through the entire
+          system. Since each service generates its own logs, the developer would have to first access
+          <code>orders</code>’s logs, track down the request that failed, follow the request to the next service (in our
+          case, the <code>inventory</code> service), access <code>inventory</code>’s logs, and so on, until they pinpoint
+          the exact request that failed. This can be a laborious and slow process.
+        </p>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/3.1) In-process method calls vs network hops.png"
-          alt="Method calls are fast, but network hops are (relatively) slow" />
-      </div>
+        <h3>3.3) Managing fault-handling logic</h3>
 
-      <p>
-        As any sufficiently heavy user of the internet will have experienced, the network is unreliable and has latency.
-        That is, networks can disconnect for any number of reasons, and network traffic can sometimes take a long time
-        to reach its destination. Even though in production, services are likely deployed to state-of-the-art data
-        centers run by large cloud providers, network faults still can and do occur.
-      </p>
+        <p>
+          Other times, a network fault may be totally random, and a request should simply be retried again. But how long
+          should the requesting service wait before retrying again? How many times should it retry before giving up? If
+          too soon or too many, then all the retries could overwhelm the responding service. Such logic must be defined
+          thoughtfully.
+        </p>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/3.1) Network faults.png" alt="Network faults" />
-      </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/3.3) Retry logic.png" alt="Retrying failed requests" />
+        </div>
 
-      <p>
-        Such faults introduce a whole new class of problems for developers - not only do they have to ensure their
-        service code is bug-free, now they also have to diagnose unexpected network faults, and add logic to service
-        code that preempts network faults by providing compensating behaviors (e.g. displaying a ‘network down’ page to
-        users, or retrying the same request a few seconds later).
-      </p>
+        <p>
+          The next question becomes: where should all this logic be defined? For some teams, the first answer to this
+          question is in HTTP client libraries that are imported into each service’s code. [7] So if the
+          <code>orders</code> service is written in Ruby, then it would <code>require</code> a gem that provides a
+          configurable client for making HTTP requests to other services. Another service written in Node might
+          <code>import</code> a similar package into its code.
+        </p>
 
-      <h3>3.2) Diagnosing network faults</h3>
+        <p>
+          Often, these libraries can also handle logging, as well as other networking and infrastructure concerns, such as
+          caching, rate-limiting, authentication etc.
+        </p>
 
-      <p>
-        Diagnosing a network fault can be especially cumbersome when a single workflow passes through multiple services.
-        Consider a user placing an order on our e-commerce example app, and suppose the <code>orders</code> service
-        needs to first update inventory in <code>inventory</code>, then create a shipment in <code>shipping</code>. This
-        one workflow involves 3 services with at least 3 network hops between them. If the order placement eventually
-        fails, what caused that to happen?
-      </p>
+        <p>
+          Teams with more resources may go further, by having each service’s owner write a client library for every other
+          service that calls it. This is already common practice when working with popular external APIs; for example,
+          Stripe provides dozens of official and third-party libraries in different languages that abstract away the logic
+          for calling its APIs. [8] Similarly, in a large team, each service’s owner may be tasked with writing a new
+          client library for every requesting service that uses a different language.
+        </p>
 
-      <div class="img-wrapper">
-        <img src="images/diagrams/3.2) Network fault in multi-service workflow.png"
-          alt="Network fault in multi-service workflow" />
-      </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/3.3) New client library for every language.png"
+            alt="shipping's owner writes a new shipping_client for every language" />
+        </div>
 
-      <p>
-        To find out, a developer would have to trace the user’s initial <code>POST</code> request through the entire
-        system. Since each service generates its own logs, the developer would have to first access
-        <code>orders</code>’s logs, track down the request that failed, follow the request to the next service (in our
-        case, the <code>inventory</code> service), access <code>inventory</code>’s logs, and so on, until they pinpoint
-        the exact request that failed. This can be a laborious and slow process.
-      </p>
+        <p>
+          Needless to say, this solution becomes less and less manageable as the number of services grows. Every time a
+          new service is built in a new language, every other service owner must write a new client library in that
+          language. More critically, updating fault-handling logic now incurs a great deal of repetitive work. Suppose the
+          CTO wishes to update the global defaults for the retry logic; developers would now have to update the code in
+          multiple client libraries in every service, then carefully coordinate each service’s redeployment. The greater
+          the number of services, the slower this process becomes. [9]
+        </p>
 
-      <h3>3.3) Managing fault-handling logic</h3>
-
-      <p>
-        Other times, a network fault may be totally random, and a request should simply be retried again. But how long
-        should the requesting service wait before retrying again? How many times should it retry before giving up? If
-        too soon or too many, then all the retries could overwhelm the responding service. Such logic must be defined
-        thoughtfully.
-      </p>
-
-      <div class="img-wrapper">
-        <img src="images/diagrams/3.3) Retry logic.png" alt="Retrying failed requests" />
-      </div>
-
-      <p>
-        The next question becomes: where should all this logic be defined? For some teams, the first answer to this
-        question is in HTTP client libraries that are imported into each service’s code. [7] So if the
-        <code>orders</code> service is written in Ruby, then it would <code>require</code> a gem that provides a
-        configurable client for making HTTP requests to other services. Another service written in Node might
-        <code>import</code> a similar package into its code.
-      </p>
-
-      <p>
-        Often, these libraries can also handle logging, as well as other networking and infrastructure concerns, such as
-        caching, rate-limiting, authentication etc.
-      </p>
-
-      <p>
-        Teams with more resources may go further, by having each service’s owner write a client library for every other
-        service that calls it. This is already common practice when working with popular external APIs; for example,
-        Stripe provides dozens of official and third-party libraries in different languages that abstract away the logic
-        for calling its APIs. [8] Similarly, in a large team, each service’s owner may be tasked with writing a new
-        client library for every requesting service that uses a different language.
-      </p>
-
-      <div class="img-wrapper">
-        <img src="images/diagrams/3.3) New client library for every language.png"
-          alt="shipping's owner writes a new shipping_client for every language" />
-      </div>
-
-      <p>
-        Needless to say, this solution becomes less and less manageable as the number of services grows. Every time a
-        new service is built in a new language, every other service owner must write a new client library in that
-        language. More critically, updating fault-handling logic now incurs a great deal of repetitive work. Suppose the
-        CTO wishes to update the global defaults for the retry logic; developers would now have to update the code in
-        multiple client libraries in every service, then carefully coordinate each service’s redeployment. The greater
-        the number of services, the slower this process becomes. [9]
-      </p>
-
-      <div class="img-wrapper">
-        <img src="images/diagrams/3.3) Microservices with client libraries.png"
-          alt="As more services are added, client libraries can get out of hand" />
-      </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/3.3) Microservices with client libraries.png"
+            alt="As more services are added, client libraries can get out of hand" />
+        </div>
 
         <h2>4) Existing solutions</h2>
 
