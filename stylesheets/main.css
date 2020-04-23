@@ -610,11 +610,11 @@ h3 {
 
 ------------------------------------ */
 
-h2#references {
+/*h2#references {
   color: var(--color-jelly-bean);
   font-size: 1.7rem;
   margin-top: 75px;
-}
+}*/
 
 #footnotes ol li {
   color: #999;
