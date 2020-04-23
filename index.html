@@ -461,7 +461,7 @@
         <h4>4.1.1) API gateway features</h4>
 
         <p>
-          At its core, an API gateway is simply a proxy server (more precisely, a ‘reverse proxy’ [10]). When used with microservices, one of its primary functions is to provide a stable API to clients and route client requests to the appropriate service. [11]
+          At its core, an API gateway is simply a proxy server (more precisely, a ‘reverse proxy’ [<a href="#footnote-10">10</a>]). When used with microservices, one of its primary functions is to provide a stable API to clients and route client requests to the appropriate service. [<a href="#footnote-11">11</a>]
         </p>
 
         <div class="img-wrapper">
@@ -598,7 +598,7 @@
         </div>
 
         <p>
-          In an actual service mesh, the PA would instead be a proxy server, known as a ‘sidecar proxy’. Each service is deployed alongside its own sidecar proxy, which intercepts all requests and responses to and from its parent service, and handles all the networking and infrastructure concerns we listed above, such as retry logic, rate-limiting etc. As a result, each service’s code can focus on its main business logic, while outsourcing networking and infrastructure concerns to the service’s sidecar proxy. [13]
+          In an actual service mesh, the PA would instead be a proxy server, known as a ‘sidecar proxy’. Each service is deployed alongside its own sidecar proxy, which intercepts all requests and responses to and from its parent service, and handles all the networking and infrastructure concerns we listed above, such as retry logic, rate-limiting etc. As a result, each service’s code can focus on its main business logic, while outsourcing networking and infrastructure concerns to the service’s sidecar proxy. [<a href="#footnote-13">13</a>]
         </p>
 
         <div class="img-wrapper">
@@ -626,7 +626,7 @@
         </div>
 
         <p>
-          In the same way, the configuration server in a service mesh provides one place to update network traffic rules, such as logic for retries, caching, encryption, rate-limiting, routing. The configuration server is the source of truth for this information, but each sidecar proxy also has a cached copy of the information. Whenever the configuration server gets updated, it propagates the changes to each sidecar proxy, which then applies the changes to its own cached copy. [14]
+          In the same way, the configuration server in a service mesh provides one place to update network traffic rules, such as logic for retries, caching, encryption, rate-limiting, routing. The configuration server is the source of truth for this information, but each sidecar proxy also has a cached copy of the information. Whenever the configuration server gets updated, it propagates the changes to each sidecar proxy, which then applies the changes to its own cached copy. [<a href="#footnote-14">14</a>]
         </p>
 
         <div class="img-wrapper">
@@ -643,7 +643,7 @@
         </p>
 
         <p>
-          The service mesh provides a robust solution to these challenges. The configuration server provides one place to define and update fault-handling logic; each sidecar proxy can be responsible for generating logs and sending them to one place to be stored, and also for executing fault-handling logic. Moreover, without any single point of failure or one single bottleneck, the architecture is resilient and highly scalable. [15]
+          The service mesh provides a robust solution to these challenges. The configuration server provides one place to define and update fault-handling logic; each sidecar proxy can be responsible for generating logs and sending them to one place to be stored, and also for executing fault-handling logic. Moreover, without any single point of failure or one single bottleneck, the architecture is resilient and highly scalable. [<a href="#footnote-15">15</a>]
         </p>
 
         <div class="img-wrapper">
@@ -654,7 +654,7 @@
         </div>
 
         <p>
-          However, as with so many tools, rich functionality begets complexity. Implementing a full service mesh more than doubles the number of components in the architecture that must now be deployed and operated. In addition, both the sidecar proxy and its parent service are usually containerized to run alongside each other in the same virtual server. [16] If any existing service is currently deployed without a container, then developers must now containerize it and redeploy it. More domain expertise must be acquired, and significant engineering effort expended.
+          However, as with so many tools, rich functionality begets complexity. Implementing a full service mesh more than doubles the number of components in the architecture that must now be deployed and operated. In addition, both the sidecar proxy and its parent service are usually containerized to run alongside each other in the same virtual server. [<a href="#footnote-"></a>16] If any existing service is currently deployed without a container, then developers must now containerize it and redeploy it. More domain expertise must be acquired, and significant engineering effort expended.
         </p>
 
         <h3>4.3) Summary</h3>
@@ -899,11 +899,11 @@
         <h3>5.6) Transitioning to a service mesh</h3>
 
         <p>
-          Despite the seemingly divergent set of trade-offs between Apex and the service mesh, Apex’s architecture is in fact acknowledged by several service mesh vendors as a possible transitional architecture on the journey toward a full service mesh. NGINX calls this architecture a ‘Router Mesh’ [17]; Citrix calls it a ‘Service Mesh Lite’ [18], and Kong calls it an ‘Internal API gateway’ [19].
+          Despite the seemingly divergent set of trade-offs between Apex and the service mesh, Apex’s architecture is in fact acknowledged by several service mesh vendors as a possible transitional architecture on the journey toward a full service mesh. NGINX calls this architecture a ‘Router Mesh’ [<a href="#footnote-17"></a>]; Citrix calls it a ‘Service Mesh Lite’ [<a href="#footnote-18">18</a>], and Kong calls it an ‘Internal API gateway’ [<a href="#footnote-19">19</a>].
         </p>
 
         <p>
-          Therefore, any team that adopts Apex’s architecture can rest assured that they are not taking a path that is mutually exclusive to eventually adopting a full service mesh. The truth is quite the opposite - this architecture is “relatively easy to implement, powerful, efficient, and fast”, and forms part of a “progression” toward a service mesh [20].
+          Therefore, any team that adopts Apex’s architecture can rest assured that they are not taking a path that is mutually exclusive to eventually adopting a full service mesh. The truth is quite the opposite - this architecture is “relatively easy to implement, powerful, efficient, and fast”, and forms part of a “progression” toward a service mesh [<a href="#footnote-20">20</a>].
         </p>
 
         <h2>6) Apex implementation and deployment</h2>
@@ -933,7 +933,7 @@
         </div>
 
         <p>
-          For the main proxy server, we had the choice between using any popular web development framework (e.g. Rails), and building atop an existing proxy (e.g. Envoy, NGINX). Since one of our design goals was to be ‘simply to deploy and operate’, we preferred a solution that did not come built-in with any extra features that are irrelevant to our target user. With this in mind, we decided on the “fast, unopinionated, minimalist” Express.js framework [21] built in Node.js, a language known for its ability to “handle a huge number of simultaneous connections with high throughput” [22] and widespread usage among developers.
+          For the main proxy server, we had the choice between using any popular web development framework (e.g. Rails), and building atop an existing proxy (e.g. Envoy, NGINX). Since one of our design goals was to be ‘simply to deploy and operate’, we preferred a solution that did not come built-in with any extra features that are irrelevant to our target user. With this in mind, we decided on the “fast, unopinionated, minimalist” Express.js framework [<a href="#footnote-21">21</a>] built in Node.js, a language known for its ability to “handle a huge number of simultaneous connections with high throughput” [<a href="#footnote-22">22</a>] and widespread usage among developers.
         </p>
 
         <h3>6.2) `apex-logs-db` - TimescaleDB</h3>
@@ -946,7 +946,7 @@
         </div>
 
         <p>
-          The request and response logs generated by `apex-proxy` are a type of time-series data. [23] To store them in one place, we chose TimescaleDB, a time-series database that can ingest data at a rate of more than 100,000 rows per second, even as a database reaches billions of rows [24]. This high ingestion rate mitigates the risk that writing logs to storage will become a bottleneck in the system.
+          The request and response logs generated by `apex-proxy` are a type of time-series data. [<a href="#footnote-23">23</a>] To store them in one place, we chose TimescaleDB, a time-series database that can ingest data at a rate of more than 100,000 rows per second, even as a database reaches billions of rows [<a href="#footnote-24">24</a>]. This high ingestion rate mitigates the risk that writing logs to storage will become a bottleneck in the system.
         </p>
 
         <h3>6.3) `apex-config-store` - Redis</h3>
@@ -967,7 +967,7 @@
         </p>
 
         <p>
-          In the end, we decided on Option 3, and implemented a Redis key-value store that gets queried for configuration data on every request. Redis stores all its data in memory, and so enables reads at over 72,000 requests per second [25]. This somewhat makes up for Option 3’s slower read speed compared to Option 2. In addition, Redis persists data to disk once every second, ensuring that configuration data will remain intact even if the Redis instance crashes and must restart.
+          In the end, we decided on Option 3, and implemented a Redis key-value store that gets queried for configuration data on every request. Redis stores all its data in memory, and so enables reads at over 72,000 requests per second [<a href="#footnote-25">25</a>]. This somewhat makes up for Option 3’s slower read speed compared to Option 2. In addition, Redis persists data to disk once every second, ensuring that configuration data will remain intact even if the Redis instance crashes and must restart.
         </p>
 
         <h3>6.4) `apex-admin-api` - Node.js and Express.js</h3>
@@ -1053,7 +1053,7 @@
         </p>
 
         <p>
-          Adding a queue in this way also lays the foundation for a further optimization - sending logs to TimescaleDB in batches. TimescaleDB’s own docs explain that this could further increase its data ingestion rate. [26]
+          Adding a queue in this way also lays the foundation for a further optimization - sending logs to TimescaleDB in batches. TimescaleDB’s own docs explain that this could further increase its data ingestion rate. [<a href="#footnote-26">26</a>]
         </p>
 
         <p>
@@ -1067,15 +1067,15 @@
         <h3>7.2) Persisting logs and config data in containers</h3>
 
         <p>
-          While containerizing TimescaleDB and Redis made deployment simpler for users, it also increased the risk of losing logs and configuration data. This is due to the ephemeral nature of Docker containers, whose “data doesn’t persist when the container no longer exists”. [27]
+          While containerizing TimescaleDB and Redis made deployment simpler for users, it also increased the risk of losing logs and configuration data. This is due to the ephemeral nature of Docker containers, whose “data doesn’t persist when the container no longer exists”. [<a href="#footnote-27">27</a>]
         </p>
 
         <p>
-          Fortunately, Docker containers support ‘volumes’, a mechanism to persist data to a container’s host filesystem, and beyond the container’s lifespan. [28] When deploying containers locally with Docker Compose, enabling this feature requires just an extra line of code in the <code>docker-compose.yml</code> configuration file.
+          Fortunately, Docker containers support ‘volumes’, a mechanism to persist data to a container’s host filesystem, and beyond the container’s lifespan. [<a href="#footnote-28">28</a>] When deploying containers locally with Docker Compose, enabling this feature requires just an extra line of code in the <code>docker-compose.yml</code> configuration file.
         </p>
 
         <p>
-          Deploying Docker containers to AWS’s Elastic Container Service (ECS), though, requires more care. ECS offers two launch types [29]: the EC2 launch type provides more control, by allowing developers to choose the type and quantity of EC2 instances to provision for their containers. Its downside is that it requires more steps to deploy. The Fargate launch type, in contrast, abstracts away the entire resource-provisioning process, reducing the deployment process to running just 6 or so commands. Crucially, only the EC2 launch type supports Docker volumes. [30]
+          Deploying Docker containers to AWS’s Elastic Container Service (ECS), though, requires more care. ECS offers two launch types [<a href="#footnote-29">29</a>]: the EC2 launch type provides more control, by allowing developers to choose the type and quantity of EC2 instances to provision for their containers. Its downside is that it requires more steps to deploy. The Fargate launch type, in contrast, abstracts away the entire resource-provisioning process, reducing the deployment process to running just 6 or so commands. Crucially, only the EC2 launch type supports Docker volumes. [<a href="#footnote-30">30</a>]
         </p>
 
         <p>
