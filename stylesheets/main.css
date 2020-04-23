@@ -666,7 +666,7 @@ h2#references {
 
 #our-team {
   background-color: var(--color-alabaster);
-  color: #1e4470;
+  color: var(--color-downy);
   margin-top: 100px;
   padding-bottom: 25px;
 }
