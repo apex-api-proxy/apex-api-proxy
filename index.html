@@ -120,7 +120,7 @@
 
     <section class="integration">
       <div class="box">
-        <img src="images/diagrams/apex-architecture-2.png" alt="best practices" />
+        <img src="images/diagrams/5.2) Apex architecture.png" alt="best practices" />
       </div>
 
       <article class="box">
@@ -175,13 +175,13 @@
 
         <h2 id="introduction">1) Introduction</h2>
 
-        <div class="img-wrapper">
+<!--         <div class="img-wrapper">
           <img
             src="images/diagrams/gifs/apex_add_service.gif"
             alt="Monolith with multiple databases"
           />
         </div>
-
+ -->
         <p>
           Apex is an API proxy for microservices. It provides one place to log and control service-to-service traffic.
         </p>
@@ -190,12 +190,12 @@
           Apex is designed for small teams that have just begun migrating from a monolith to a microservices architecture. While microservices bring many benefits, chief among them greater scalability, they also bring a host of new challenges by relying on the network for service-to-service communication. As network communication is unreliable and has latency, faults become more likely to occur, leading teams to have to spend more time diagnosing network-related faults, and writing pre-emptive fault-handling logic within each service.
         </p>
 
-        <div class="img-wrapper">
+<!--         <div class="img-wrapper">
           <img
             src="images/diagrams/gifs/apex_query_logs_2.gif"
             alt="Monolith with multiple databases"
           />
-        </div>
+        </div> -->
 
         <p>
           Some current solutions exist to help teams perform these tasks faster. Client libraries can be imported into each service’s code to automate networking concerns, an API gateway can be inserted in front of all services to handle incoming traffic, and for large systems, a service mesh is often deployed to abstract away networking concerns from services altogether. These are all valid solutions, designed for different users, and with their own set of trade-offs.
@@ -222,7 +222,7 @@
         </p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/monolilth.jpg" alt="Monolith" />
+          <img src="images/diagrams/2.1) Monolith.png" alt="Monolith" />
         </div>
 
         <p>
@@ -234,7 +234,7 @@
         </p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/method_calls.jpg" alt="Method calls" />
+          <img src="images/diagrams/2.1) In-process method calls.png" alt="Method calls" />
         </div>
 
         <p>
@@ -247,7 +247,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/monolith_with_multiple_databases.jpg"
+            src="images/diagrams/2.1) Monolith with multiple databases.png"
             alt="Monolith with multiple databases"
           />
         </div>
@@ -264,7 +264,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.2) subsystems.png"
+            src="images/diagrams/2.2) Microservices with multiple databases.png"
             alt="Subsystems can exist in monoliths and as microservices"
           />
         </div>
@@ -275,7 +275,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.2) over the network.png"
+            src="images/diagrams/2.2) Microservices communicating over the network.png"
             alt="Microservices communicate over the network via http requests and responses"
           />
         </div>
@@ -300,7 +300,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.3) different technologies.png"
+            src="images/diagrams/2.3) Microservices with different stacks.png"
             alt="Microservices can use different technologies as long as their APIs remain stable"
           />
         </div>
@@ -311,7 +311,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.2) independently redeployed.png"
+            src="images/diagrams/2.3) Redeploying one microservice.png"
             alt="Each microservice can be independently redeployed as long as their APIs remain stable"
           />
         </div>
@@ -326,7 +326,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.3) independently scaled.png"
+            src="images/diagrams/2.3) Scaling microservices.png"
             alt="Each microservice can be independently scaled as long as their APIs remain stable"
           />
         </div>
@@ -345,7 +345,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.1) method calls fast.png"
+            src="images/diagrams/3.1) In-process method calls vs network hops.png"
             alt="Method calls are fast; network hops are relatively slow"
           />
         </div>
@@ -356,7 +356,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.1) dropped from network.png"
+            src="images/diagrams/3.1) Network faults.png"
             alt="Requests or responses can be dropped from the network"
           />
         </div>
@@ -373,7 +373,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.2) where did the fault.png"
+            src="images/diagrams/3.2) Network fault in multi-service workflow.png"
             alt="Finding where the network fault occurred can be difficult"
           />
         </div>
@@ -390,7 +390,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.3) retry failed.png"
+            src="images/diagrams/3.3) Retry logic.png"
             alt="Retrying failed requests requires thoughtful logic"
           />
         </div>
@@ -409,7 +409,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.3) a new shipping client.png"
+            src="images/diagrams/3.3) New client library for every language.png"
             alt="A new shipping client library for every language"
           />
         </div>
@@ -420,24 +420,7 @@
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.3) as more services.png"
-            alt="As more services are added, client libraries can get out of hand"
-          />
-        </div>
-
-        <h2>4) Existing solutions</h2>
-
-        <p>
-          With microservices becoming increasingly popular, a number of solutions have emerged to help teams overcome these challenges. Here we explain how two of these solutions - the API gateway and the service mesh - compare with each other.
-        </p>
-
-        <p>
-          Both of these solutions in fact share the same building block - a proxy server.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4) building block.png"
+            src="images/diagrams/3.3) Microservices with client libraries.png"
             alt="As more services are added, client libraries can get out of hand"
           />
         </div>
