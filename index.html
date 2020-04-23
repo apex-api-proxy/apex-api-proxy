@@ -197,7 +197,7 @@
           While microservices bring many benefits such as faster deployment cycles, they also bring a host of new
           challenges by relying on the network for service-to-service communication. As network communication is
           unreliable and has latency, faults become more likely to occur, leading teams to have to spend more time
-          diagnosing network-related faults, and writing pre-emptive fault-handling logic within each service. <a href="#footnote-1">1</a>]
+          diagnosing network-related faults, and writing pre-emptive fault-handling logic within each service. [<a href="#footnote-1">1</a>]
         </p>
 
         <p>
@@ -251,7 +251,7 @@
 
         <p>
           As method or function calls take place within the same running process in memory, they are reliable and very
-          fast, with latencies often measured in microseconds <a href="#footnote-12">2</a>].
+          fast, with latencies often measured in microseconds [<a href="#footnote-12">2</a>].
         </p>
 
         <div class="img-wrapper">
@@ -283,7 +283,7 @@
         <p>
           The microservices architecture differs from the monolith in two major ways. First, subsystems are decoupled even
           further. Each subsystem is deployed independently to its own app server as a standalone ‘application’, or
-          ‘service’, and the current best practice is for every service to have its own database <a href="#footnote-3">3</a>].
+          ‘service’, and the current best practice is for every service to have its own database [<a href="#footnote-3">3</a>].
         </p>
 
         <div class="img-wrapper">
@@ -320,7 +320,7 @@
         <h3>2.3) Microservices benefits</h3>
 
         <p>
-          A first benefit of microservices is a wider choice of technologies for service developers. <a href="#footnote-4">4</a>] The network
+          A first benefit of microservices is a wider choice of technologies for service developers. [<a href="#footnote-4">4</a>] The network
           boundaries between services free them from having to use the same technology stack. As long as each service
           maintains a stable network interface, or API, for other services talking to it, it is free to choose the
           language or framework that is most optimal for implementing its business logic.
@@ -332,7 +332,7 @@
         </div>
 
         <p>
-          Arguably the most defining benefit, though, is the option to deploy subsystems independently of each other. <a href="#footnote-5">5</a>]
+          Arguably the most defining benefit, though, is the option to deploy subsystems independently of each other. [<a href="#footnote-5">5</a>]
           With subsystems now deployed to independent services that each have a smaller scope, redeploying any one
           subsystem incurs less overhead and so it becomes practical to redeploy each service more frequently. This
           enables teams to ship new features faster and reap the corresponding business benefits sooner.
@@ -351,7 +351,7 @@
         </div>
 
         <p>
-          Independent redeployment also enables independent scaling. <a href="#footnote-6">6</a>] If our <code>orders</code> service is the first
+          Independent redeployment also enables independent scaling. [<a href="#footnote-6">6</a>] If our <code>orders</code> service is the first
           to reach its capacity, then we can simply upgrade <code>orders</code> to a more powerful server or deploy more
           replicas of <code>orders</code>, without having to also replicate every other service. Yet again, as long as the
           replicated <code>orders</code> service retains the same API before and after scaling, the other services can
@@ -440,7 +440,7 @@
 
         <p>
           The next question becomes: where should all this logic be defined? For some teams, the first answer to this
-          question is in HTTP client libraries that are imported into each service’s code. <a href="#footnote-7">7</a>] So if the
+          question is in HTTP client libraries that are imported into each service’s code. [<a href="#footnote-7">7</a>] So if the
           <code>orders</code> service is written in Ruby, then it would <code>require</code> a gem that provides a
           configurable client for making HTTP requests to other services. Another service written in Node might
           <code>import</code> a similar package into its code.
@@ -455,7 +455,7 @@
           Teams with more resources may go further, by having each service’s owner write a client library for every other
           service that calls it. This is already common practice when working with popular external APIs; for example,
           Stripe provides dozens of official and third-party libraries in different languages that abstract away the logic
-          for calling its APIs. <a href="#footnote-8">8</a>] Similarly, in a large team, each service’s owner may be tasked with writing a new
+          for calling its APIs. [<a href="#footnote-8">8</a>] Similarly, in a large team, each service’s owner may be tasked with writing a new
           client library for every requesting service that uses a different language.
         </p>
 
@@ -470,7 +470,7 @@
           language. More critically, updating fault-handling logic now incurs a great deal of repetitive work. Suppose the
           CTO wishes to update the global defaults for the retry logic; developers would now have to update the code in
           multiple client libraries in every service, then carefully coordinate each service’s redeployment. The greater
-          the number of services, the slower this process becomes. <a href="#footnote-9">9</a>]
+          the number of services, the slower this process becomes. [<a href="#footnote-9">9</a>]
         </p>
 
         <div class="img-wrapper">
