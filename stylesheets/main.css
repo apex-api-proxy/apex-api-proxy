@@ -368,6 +368,7 @@ nav#site-navigation p {
 }
 
 nav#site-navigation a {
+  font-family: var(--font-family-header);
   text-decoration: none;
   white-space: nowrap;
 }
