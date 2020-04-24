@@ -27,19 +27,19 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/images/icons/favicons/apple-touch-icon.png"
+      href="images/icons/favicons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/images/icons/favicons/favicon-32x32.png"
+      href="images/icons/favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/images/icons/favicons/favicon-16x16.png"
+      href="images/icons/favicons/favicon-16x16.png"
     />
     <link rel="manifest" href="/images/icons/favicons/site.webmanifest" />
     <link rel="mask-icon" href="/images/icons/favicons/safari-pinned-tab.svg" color="#5bbad5" />
@@ -80,7 +80,7 @@
         <img src="images/logos/apex-logo.png" alt="Apex logo" id="apex-logo" />
       </a> -->
 
-      <a href="https://github.com/apex-api-proxy" target="_blank">
+      <a href="https://github.com/apex-api-proxy/apex" target="_blank">
         <img src="images/logos/github_black.png" alt="github logo" id="github-logo" />
       </a>
     </div>
@@ -140,7 +140,7 @@
     <section class="integration">
       <article class="box">
         <div class="text-box">
-          <h1>Manage custom fault-handling logic e.g. retries in one place</h1>
+          <h1>Manage all fault-handling logic e.g. retries in one place</h1>
 
           <p>
             Define both global traffic rules and custom rules for individual services
@@ -271,8 +271,7 @@
 
         <p>
           As method or function calls take place within the same running process in memory, they are
-          reliable and very fast, with latencies often measured in microseconds [<a
-            href="#footnote-2"
+          reliable and very fast, with latency often measured in microseconds [<a href="#footnote-2"
             >2</a
           >].
         </p>
@@ -727,7 +726,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/4.1.2) API gateway's extra features for client-server traffic.png"
-            alt="Could we just deploy an API gateway internally between services?"
+            alt="API gateway's features for client-server traffic add unnecessary complexity when using it for service-to-service traffic"
           />
         </div>
 
@@ -755,7 +754,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/4.2.1) Everybody talks to everybody.png"
-            alt="Communication in a large team: everybody talks to everybody"
+            alt="Communication in a large team (1): everybody talks to everybody"
           />
         </div>
 
@@ -811,7 +810,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/4.2.1) Team members with their own PA.png"
-            alt="Communication in a large team: Every team member talks through their own personal assistant"
+            alt="Communication in a large team (2): Every team member talks through their own personal assistant (PA)"
           />
         </div>
 
@@ -1009,7 +1008,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/5.2) Mediating all service-to-service traffic.png"
-            alt="Apex mediating all service-to-service traffic"
+            alt="Apex mediates internal traffic between every pair of services"
           />
         </div>
 
@@ -1042,7 +1041,10 @@
         </p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/5.3) apex-logs-db.png" alt="Apex logs database" />
+          <img
+            src="images/diagrams/5.3) apex-logs-db.png"
+            alt="All requests and responses get logged to one place"
+          />
         </div>
 
         <p>
@@ -1062,7 +1064,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/5.3) Adding correlation_id header.png"
-            alt="Requests and responses in the same cycle are given the same correlation_id"
+            alt="Requests and responses in the same cycle get given the same correlation-id when logged"
           />
         </div>
 
@@ -1077,7 +1079,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/5.3) Tracing multi-service workflow.png"
-            alt="In a multi-service workflow, requests and responses can be traced by correlation_id"
+            alt="In a multi-service workflow, all requests and responses get the same correlation-id when logged"
           />
         </div>
 
@@ -1090,7 +1092,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/5.3) Querying logs by correlation_id.png"
-            alt="The admin UI allows logs to be queried by correlation_id"
+            alt="apex-admin-ui interface for querying apex-logs-db by correlation_id"
           />
         </div>
 
@@ -1101,7 +1103,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/gifs/apex_query_logs_2.gif"
-            alt="Monolith with multiple databases"
+            alt="Actual Apex admin UI for querying apex-logs-db by correlation_id"
           />
         </div>
 
@@ -1161,7 +1163,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/5.4) apex-proxy + apex-config-store.png"
-            alt="Apex proxy relies heavily on the configuration store"
+            alt="apex-proxy queries apex-config-store for authentication, routing and retry logic on every request"
           />
         </div>
 
@@ -1179,7 +1181,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/5.4) orders-shipping custom configuration_2.png"
-            alt="Custom configuration logic for when the orders service contacts the shipping service"
+            alt="Custom configuration logic for when the orders service calls the shipping service"
           />
         </div>
 
@@ -1256,7 +1258,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/6) Apex architecture with technologies.png"
-            alt="The Apex core components use several technologies"
+            alt="Apex architectural components use several technologies"
           />
         </div>
 
@@ -1291,7 +1293,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/6.2) apex-logs-db in TimescaleDB.png"
-            alt="The log database is an instance of TimescaleDB"
+            alt="The logs database is an instance of TimescaleDB"
           />
         </div>
 
@@ -1345,7 +1347,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/6.4) apex-admin-api in Node and Express.png"
-            alt="The admin API is another Node and Express application"
+            alt="The admin API is another Node.js and Express.js application"
           />
         </div>
 
@@ -1378,7 +1380,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/6.6) Deploying in Docker containers.png"
-            alt="Each of the core components deploys in its own Docker container"
+            alt="Each component deploys in its own Docker container"
           />
         </div>
 
@@ -1398,7 +1400,7 @@
         <div class="img-wrapper">
           <img
             src="images/diagrams/gifs/apex_deploy_2.gif"
-            alt="Each of the core components deploys in its own Docker container"
+            alt="Deploying Apex's components with Docker Compose"
           />
         </div>
 
@@ -1413,9 +1415,9 @@
 
         <p>
           Sending large request and response bodies from <code>apex-proxy</code> to
-          <code>apex-logs-db</code> can add significant latencies to request-response cycles, spin
-          up long-running processes in <code>apex-proxy</code> that decrease its throughput, and
-          fill up <code>apex-logs-db</code> far faster than necessary.
+          <code>apex-logs-db</code> can add significant latency to request-response cycles, spin up
+          long-running processes in <code>apex-proxy</code> that decrease its throughput, and fill
+          up <code>apex-logs-db</code> far faster than necessary.
         </p>
 
         <p>
@@ -1476,8 +1478,7 @@
         <p>
           While containerizing TimescaleDB and Redis made deployment simpler for users, it also
           increased the risk of losing logs and configuration data. This is due to the ephemeral
-          nature of Docker containers, whose “data doesn’t persist when the container no longer
-          exists”. [<a href="#footnote-27">27</a>]
+          nature of Docker containers. [<a href="#footnote-27">27</a>]
         </p>
 
         <p>
@@ -1539,9 +1540,8 @@
           <code>apex-config-store</code>. As Apex is designed for small teams with a finite and
           small number of services, most of these reads from Redis will be for the same
           configuration data. Therefore, we can significantly reduce the read rate by caching a copy
-          of all configuration data in memory within <code>apex-proxy</code>. This of course creates
-          the new problem of cache invalidation - any changes in Redis must now be propagated to
-          <code>apex-proxy</code> e.g. through an extra REST endpoint in <code>apex-proxy</code>.
+          of all configuration data in memory within <code>apex-proxy</code>, and updating the cache
+          whenever any user makes a change on Redis.
         </p>
 
         <section id="footnotes">
@@ -1815,10 +1815,7 @@
         </li>
 
         <li class="individual">
-          <img
-            src="https://media-exp1.licdn.com/dms/image/C5603AQEKm4855aKamA/profile-displayphoto-shrink_800_800/0?e=1593043200&v=beta&t=h5U5iPhDEFm0YBZ5r7-STq7x6h85KKLZ1w_iIPbTs9U"
-            alt="Kelvin Wong"
-          />
+          <img src="images/avatars/kelvin_wong.jpg" alt="Kelvin Wong" />
 
           <h3>Kelvin Wong</h3>
 
