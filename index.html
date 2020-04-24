@@ -245,7 +245,7 @@
           microservices architecture is a choice, the other choice being, of course, a monolith.
         </p>
 
-        <h3>2.1) Monolithic architecture</h3>
+        <h3 id="monolithic-architecture">2.1) Monolithic architecture</h3>
 
         <p>
           In a monolithic architecture, there is typically just one application server (the
@@ -308,7 +308,7 @@
           tax filings.
         </p>
 
-        <h3>2.2) Microservices architecture</h3>
+        <h3 id="microservices-architecture">2.2) Microservices architecture</h3>
 
         <p>
           The microservices architecture differs from the monolith in two major ways. First,
@@ -355,7 +355,7 @@
           culprit behind many of its drawbacks.
         </p>
 
-        <h3>2.3) Microservices benefits</h3>
+        <h3 id="microservices-benefits">2.3) Microservices benefits</h3>
 
         <p>
           A first benefit of microservices is a wider choice of technologies for service developers.
@@ -424,7 +424,7 @@
           of challenges.
         </p>
 
-        <h3>3.1) Network unreliability and latency</h3>
+        <h3 id="network-unreliability-and-latency">3.1) Network unreliability and latency</h3>
 
         <p>
           Recall that in a monolith, subsystems are simply classes or modules that communicate
@@ -460,7 +460,7 @@
           same request a few seconds later).
         </p>
 
-        <h3>3.2) Diagnosing network faults</h3>
+        <h3 id="diagnosing-network-faults">3.2) Diagnosing network faults</h3>
 
         <p>
           Diagnosing a network fault can be especially cumbersome when a single workflow passes
@@ -487,7 +487,7 @@
           that failed. This can be a laborious and slow process.
         </p>
 
-        <h3>3.3) Managing fault-handling logic</h3>
+        <h3 id="managing-fault-handling-logic">3.3) Managing fault-handling logic</h3>
 
         <p>
           Other times, a network fault may be totally random, and a request should simply be retried
@@ -570,7 +570,7 @@
           />
         </div>
 
-        <h3>4.0) Proxy server</h3>
+        <h3 id="proxy-server">4.0) Proxy server</h3>
 
         <p>
           A proxy is simply a server that sits on the path of network traffic between two
@@ -601,7 +601,7 @@
           forwards the same response back to <code>orders</code>.
         </p>
 
-        <h3>4.1) API gateway</h3>
+        <h3 id="api-gateway">4.1) API gateway</h3>
 
         <h4>4.1.1) API gateway features</h4>
 
@@ -737,7 +737,7 @@
           Apex’s solution.
         </p>
 
-        <h3>4.2) Service mesh</h3>
+        <h3 id="service-mesh">4.2) Service mesh</h3>
 
         <p>
           The service mesh is another existing solution to the challenges with microservices that
@@ -912,7 +912,7 @@
           significant engineering effort expended.
         </p>
 
-        <h3>4.3) Summary</h3>
+        <h3 id="summary">4.3) Summary</h3>
 
         <p>
           As we have seen, solutions certainly exist to handle the challenges we described with
@@ -940,7 +940,7 @@
 
         <h2 id="design-architecture">5) Design & architecture</h2>
 
-        <h3>5.1) Apex trade-offs</h3>
+        <h3 id="apex-trade-offs">5.1) Apex trade-offs</h3>
 
         <p>
           For some teams, neither an API gateway nor a service mesh provide the right set of
@@ -981,7 +981,7 @@
           These are precisely the trade-offs we chose when building Apex.
         </p>
 
-        <h3>5.2) Proxy server with middleware layers</h3>
+        <h3 id="proxy-server-with-middleware-layers">5.2) Proxy server with middleware layers</h3>
 
         <p>
           Apex’s architecture includes 5 components:
@@ -1033,7 +1033,7 @@
           />
         </div>
 
-        <h3>5.3) Logging and tracing service-to-service traffic</h3>
+        <h3 id="logging-and-tracing-service-to-service-traffic">5.3) Logging and tracing service-to-service traffic</h3>
 
         <p>
           Since <code>apex-proxy</code> intercepts all network traffic between microservices, it is
@@ -1105,7 +1105,7 @@
           />
         </div>
 
-        <h3>5.4) One place to manage fault-handling logic</h3>
+        <h3 id="one-place-to-manage-fault-handling-logic">5.4) One place to manage fault-handling logic</h3>
 
         <p>
           Similar to the service mesh, Apex also has a single configuration server, the
@@ -1195,7 +1195,7 @@
           first attempt fail.
         </p>
 
-        <h3>5.5) Trading off availability and scalability</h3>
+        <h3 id="trading-off-availability-and-scalability">5.5) Trading off availability and scalability</h3>
 
         <p>
           Though Apex provides a solution to the two microservices challenges that were described
@@ -1225,7 +1225,7 @@
           />
         </div>
 
-        <h3>5.6) Transitioning to a service mesh</h3>
+        <h3 id="transitioning-to-a-service-mesh">5.6) Transitioning to a service mesh</h3>
 
         <p>
           Despite the seemingly divergent set of trade-offs between Apex and the service mesh,
@@ -1264,7 +1264,7 @@
           Below, we briefly elaborate upon each of these choices.
         </p>
 
-        <h3>6.1) <code>apex-proxy</code> - Node.js and Express.js</h3>
+        <h3 id="apex-proxy---node_js-and-express_js">6.1) <code>apex-proxy</code> - Node.js and Express.js</h3>
 
         <div class="img-wrapper">
           <img
@@ -1286,7 +1286,7 @@
           widespread usage among developers.
         </p>
 
-        <h3>6.2) <code>apex-logs-db</code> - TimescaleDB</h3>
+        <h3 id="apex-logs-db---timescaledb">6.2) <code>apex-logs-db</code> - TimescaleDB</h3>
 
         <div class="img-wrapper">
           <img
@@ -1304,7 +1304,7 @@
           bottleneck in the system.
         </p>
 
-        <h3>6.3) <code>apex-config-store</code> - Redis</h3>
+        <h3 id="apex-config-store---redis">6.3) <code>apex-config-store</code> - Redis</h3>
 
         <div class="img-wrapper">
           <img
@@ -1340,7 +1340,7 @@
           remain intact even if the Redis instance crashes and must restart.
         </p>
 
-        <h3>6.4) <code>apex-admin-api</code> - Node.js and Express.js</h3>
+        <h3 id="apex-admin-api---node_js-and-express_js">6.4) <code>apex-admin-api</code> - Node.js and Express.js</h3>
 
         <div class="img-wrapper">
           <img
@@ -1357,7 +1357,7 @@
           who are not authorized to update configuration data.
         </p>
 
-        <h3>6.5) <code>apex-admin-ui</code> - React</h3>
+        <h3 id="apex-admin-ui---react">6.5) <code>apex-admin-ui</code> - React</h3>
 
         <div class="img-wrapper">
           <img
@@ -1373,7 +1373,7 @@
           configuration, and query logs by <code>correlation_id</code>.
         </p>
 
-        <h3>6.6) Deployment - Docker and Docker Compose</h3>
+        <h3 id="deployment---docker-and-docker-compose">6.6) Deployment - Docker and Docker Compose</h3>
 
         <div class="img-wrapper">
           <img
@@ -1409,7 +1409,7 @@
 
         <h2 id="implementation-challenges">7) Implementation challenges</h2>
 
-        <h3>7.1) Logging large request and response bodies</h3>
+        <h3 id="logging-large-request-and-response-bodies">7.1) Logging large request and response bodies</h3>
 
         <p>
           Sending large request and response bodies from <code>apex-proxy</code> to
@@ -1471,7 +1471,7 @@
           unimportant data, we also deemed this an acceptable trade-off.
         </p>
 
-        <h3>7.2) Persisting logs and config data in containers</h3>
+        <h3 id="persisting-logs-and-config-data-in-containers">7.2) Persisting logs and config data in containers</h3>
 
         <p>
           While containerizing TimescaleDB and Redis made deployment simpler for users, it also
@@ -1511,7 +1511,7 @@
 
         <h2 id="future-work">8) Future work</h2>
 
-        <h3>8.1) Handle bursty traffic with a queue</h3>
+        <h3 id="handle-bursty-traffic-with-a-queue">8.1) Handle bursty traffic with a queue</h3>
 
         <p>
           Apex, as is, represents a single point of failure for a system. To protect it from being
@@ -1522,7 +1522,7 @@
           in the right order.
         </p>
 
-        <h3>8.2) Back up logs and config</h3>
+        <h3 id="back-up-logs-and-config">8.2) Back up logs and config</h3>
 
         <p>
           While Docker volumes offer strong persistence guarantees for Apex’s logs and configuration
@@ -1532,7 +1532,7 @@
           periodically back up data to a cloud storage service (e.g. AWS S3 and S3 Glacier).
         </p>
 
-        <h3>8.3) Reduce latency by caching config in <code>apex-proxy</code></h3>
+        <h3 id="reduce-latency-by-caching-config-in-apex-proxy">8.3) Reduce latency by caching config in <code>apex-proxy</code></h3>
 
         <p>
           Currently, every incoming request to Apex triggers multiple reads from the Redis
@@ -1789,7 +1789,7 @@
             alt="Derick Gross"
           />
 
-          <h3>Derick Gross</h3>
+          <h3 id="derick-gross">Derick Gross</h3>
 
           <p>New York, NY</p>
 
@@ -1820,7 +1820,7 @@
             alt="Kelvin Wong"
           />
 
-          <h3>Kelvin Wong</h3>
+          <h3 id="kelvin-wong">Kelvin Wong</h3>
 
           <p>London, UK</p>
 
