@@ -1,7 +1,7 @@
 # 🏠 [Homepage](https://apex-api-proxy.github.io/)
 
-<p style="text-align: center;">
-  <img src="images/logos/apex-logo.png" alt="Apex logo" style="width: 40%;" />
+<p style="text-align: center; margin-left: auto; margin-right: auto; width: 40%">
+  <img src="images/logos/apex-logo.png" alt="Apex logo" />
 </p>
 
 ## Apex: API proxy for microservices
