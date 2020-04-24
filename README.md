@@ -1,9 +1,11 @@
-# 🏠 [Homepage](http://bit.ly/2TJckpZ)
+# 🏠 [Homepage](https://apex-api-proxy.github.io/)
 
-![Apex Logo]('images/logos/apex-logo.png')
+<p style="text-align: center;">
+  <img src="images/logos/apex-logo.png" alt="Apex logo" />
+</p>
 
 ## Apex: API proxy for microservices
 
-**One place to log and control service-to-service traffic**
-
 Apex is an API proxy for microservices. Designed for small teams that have just begun migrating from a monolith to a microservices architecture, it provides one place to log and control service-to-service traffic.
+
+# 🏠 [Homepage](https://apex-api-proxy.github.io/)
