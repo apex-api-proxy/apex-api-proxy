@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const mobileCaseStudyLinks = [];
 
-  (function() {
+  (function () {
     let lastH2Id;
 
     linkableHeaders.forEach((headerObj) => {
@@ -108,16 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       li2.dataset['parentHeaderId'] = lastH2Id;
       li2.dataset['tagType'] = headerObj.el.nodeName;
-      const a2 = document.createElement('a');
-      a2.href = snakeCaseify(`#${removeAmpersand(headerObj.text).replace('!', '')}`);
-      a2.textContent = headerObj.text.toUpperCase();
 
       li.appendChild(a);
       caseStudyNavUl.appendChild(li);
 
-      mobileCaseStudyLinks.push(a2);
-      li2.appendChild(a2);
-      mobileCaseStudyNavUl.appendChild(li2);
+      if (headerObj.type === 'H2') {
+        const a2 = document.createElement('a');
+        a2.href = snakeCaseify(`#${removeAmpersand(headerObj.text).replace('!', '')}`);
+        a2.textContent = headerObj.text.toUpperCase();
+
+        mobileCaseStudyLinks.push(a2);
+        li2.appendChild(a2);
+        mobileCaseStudyNavUl.appendChild(li2);
+      }
 
       headerObj.navEl = li;
     });
