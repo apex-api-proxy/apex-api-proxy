@@ -424,34 +424,41 @@ header h1 img {
 ------------------------------------ */
 #side-nav {
   display: none;
-
-  left: 1rem;
+  left: 4rem;
   position: fixed;
-  top: 17%;
-  transform: translateY(-50%);
+  top: 5%;
+  height: 25%;
+  /* transform: translateY(-50%); */
 }
 
 #side-nav img {
-  width: 100%;
   max-width: 250px;
-  margin: 20px auto;
-  height: auto;
+  margin: 0 auto;
+  /* height: 100%;
+  width: auto; */
 }
 
 #case-study nav {
   display: none;
   left: 2rem;
   position: fixed;
-  top: 70%;
-  transform: translateY(-60%);
+  top: 35%;
   max-width: 300px;
+  height: 60%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#case-study nav::-webkit-scrollbar {
+  width: 0 !important;
 }
 
 #case-study nav li {
   color: #999;
   font-size: 1.3rem;
   list-style: circle;
-  margin-bottom: 2vh;
+  margin-bottom: 1.5vh;
   padding-left: 1rem;
 }
 

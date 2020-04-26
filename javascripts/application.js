@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const withinCaseStudy =
       position >= mainPosition && position < ourTeamPosition - getWindowHeight();
 
-    if (getWindowHeight() < 500 || getWindowWidth() < 1100) {
+    if (getWindowHeight() < 650 || getWindowWidth() < 1100) {
       $sideNavLogo.stop(true, true).css('display', 'none');
       $caseStudyNav.stop(true, true).css('display', 'none');
     } else if (withinCaseStudy) {
