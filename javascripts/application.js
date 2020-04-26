@@ -102,17 +102,17 @@ document.addEventListener('DOMContentLoaded', () => {
       a.textContent = headerObj.text.toUpperCase();
       a.className = 'case-study-anchor';
 
-      const li2 = document.createElement('li');
-      li2.id = snakeCaseify(
-        `mobile-${removeAmpersand(headerObj.text).replace('!', '').toLowerCase()}-nav`,
-      );
-      li2.dataset['parentHeaderId'] = lastH2Id;
-      li2.dataset['tagType'] = headerObj.el.nodeName;
-
       li.appendChild(a);
       caseStudyNavUl.appendChild(li);
 
       if (headerObj.type === 'H2') {
+        const li2 = document.createElement('li');
+        li2.id = snakeCaseify(
+          `mobile-${removeAmpersand(headerObj.text).replace('!', '').toLowerCase()}-nav`,
+        );
+        li2.dataset['parentHeaderId'] = lastH2Id;
+        li2.dataset['tagType'] = headerObj.el.nodeName;
+
         const a2 = document.createElement('a');
         a2.href = snakeCaseify(`#${removeAmpersand(headerObj.text).replace('!', '')}`);
         a2.textContent = headerObj.text.toUpperCase();
