@@ -662,7 +662,7 @@ h2#references {
 }
 
 #footnotes a:hover {
-  color: #ef431b;
+  color: var(--color-downy);
 }
 
 /* ---------------------------------
