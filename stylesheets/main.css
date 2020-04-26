@@ -444,6 +444,7 @@ header h1 img {
   position: fixed;
   top: 70%;
   transform: translateY(-60%);
+  max-width: 300px;
 }
 
 #case-study nav li {
@@ -451,6 +452,15 @@ header h1 img {
   font-size: 1.3rem;
   list-style: circle;
   margin-bottom: 2vh;
+  padding-left: 1rem;
+}
+
+#case-study nav li[data-tag-type="H3"] {
+  display: none;
+}
+
+#case-study nav li[data-tag-type="H3"].active-child {
+  display: block;
 }
 
 #case-study nav li:last-of-type {
@@ -460,7 +470,6 @@ header h1 img {
 #case-study nav a {
   color: #999;
   font-size: 0.9rem;
-  margin-left: 1rem;
   text-decoration: none;
   vertical-align: 0.1rem;
 }

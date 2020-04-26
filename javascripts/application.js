@@ -39,23 +39,37 @@ document.addEventListener('DOMContentLoaded', () => {
     .filter((logo) => !/apex/.test(logo.id))
     .map((logo) => logo.id.split('-')[0]);
 
-  const snakeCaseify = (text) => text.toLowerCase().split(/ +/).join('-');
+  const snakeCaseify = (text) => text.toLowerCase().split(/ +/).join('-').replace(/\./g, '_');
 
   const removeAmpersand = (text) => text.replace('&', '');
 
-  const h2Text = [...document.querySelectorAll('h2')].map((h2) =>
-    h2.textContent.split(' ').slice(1).join(' '),
-  );
+  let lastH2Id;
+  const linkableHeaders = [...document.querySelectorAll('h2,h3')].map((el) => {
+    if (el.nodeName === 'H2') {
+      lastH2Id = el.id;
+    }
+
+    return {
+      el,
+      type: el.nodeName,
+      text: el.textContent.replace(/^.*\) /, ''),
+      parentId: lastH2Id
+    }
+  });
 
   const paddingAllowanceAboveHeading = 30;
 
   const getCaseStudyHeadingPositions = () =>
-    h2Text.reduce((obj, h2Str) => {
-      const selector = `#${snakeCaseify(removeAmpersand(h2Str))}`;
-      const h2 = document.querySelector(selector);
+    linkableHeaders.reduce((obj, headerObj) => {
+      const selector = `#${snakeCaseify(removeAmpersand(headerObj.text))}`;
+      const header = document.querySelector(selector);
       const position =
-        getScrollPosition() + h2.getBoundingClientRect().top - paddingAllowanceAboveHeading;
-      obj[`${selector}-nav`] = position;
+        getScrollPosition() + header.getBoundingClientRect().top - paddingAllowanceAboveHeading;
+      obj[`${selector}-nav`] = {
+        position,
+        headerData: headerObj
+      };
+
       return obj;
     }, {});
 
@@ -68,29 +82,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const mobileCaseStudyLinks = [];
 
-  h2Text.forEach((h2TextStr) => {
-    const li = document.createElement('li');
-    li.id = snakeCaseify(`${removeAmpersand(h2TextStr).replace('!', '').toLowerCase()}-nav`);
-    const a = document.createElement('a');
-    a.href = snakeCaseify(`#${removeAmpersand(h2TextStr).replace('!', '')}`);
-    a.textContent = h2TextStr.toUpperCase();
-    a.className = 'case-study-anchor';
+  (function() {
+    let lastH2Id;
 
-    const li2 = document.createElement('li');
-    li2.id = snakeCaseify(
-      `mobile-${removeAmpersand(h2TextStr).replace('!', '').toLowerCase()}-nav`,
-    );
-    const a2 = document.createElement('a');
-    a2.href = snakeCaseify(`#${removeAmpersand(h2TextStr).replace('!', '')}`);
-    a2.textContent = h2TextStr.toUpperCase();
+    linkableHeaders.forEach((headerObj) => {
+      if (headerObj.type === 'H2') {
+        lastH2Id = headerObj.el.id;
+      } else {
+        headerObj.parentId = lastH2Id;
+      }
 
-    li.appendChild(a);
-    caseStudyNavUl.appendChild(li);
+      const li = document.createElement('li');
+      li.id = snakeCaseify(`${removeAmpersand(headerObj.text).replace('!', '').toLowerCase()}-nav`);
+      li.dataset['parentHeaderId'] = lastH2Id;
+      li.dataset['tagType'] = headerObj.el.nodeName;
 
-    mobileCaseStudyLinks.push(a2);
-    li2.appendChild(a2);
-    mobileCaseStudyNavUl.appendChild(li2);
-  });
+      const a = document.createElement('a');
+      a.href = snakeCaseify(`#${removeAmpersand(headerObj.text).replace('!', '')}`);
+      a.textContent = headerObj.text.toUpperCase();
+      a.className = 'case-study-anchor';
+
+      const li2 = document.createElement('li');
+      li2.id = snakeCaseify(
+        `mobile-${removeAmpersand(headerObj.text).replace('!', '').toLowerCase()}-nav`,
+      );
+      li2.dataset['parentHeaderId'] = lastH2Id;
+      li2.dataset['tagType'] = headerObj.el.nodeName;
+      const a2 = document.createElement('a');
+      a2.href = snakeCaseify(`#${removeAmpersand(headerObj.text).replace('!', '')}`);
+      a2.textContent = headerObj.text.toUpperCase();
+
+      li.appendChild(a);
+      caseStudyNavUl.appendChild(li);
+
+      mobileCaseStudyLinks.push(a2);
+      li2.appendChild(a2);
+      mobileCaseStudyNavUl.appendChild(li2);
+
+      headerObj.navEl = li;
+    });
+  }());
 
   const changeImgSrc = (tag, url) => {
     document.querySelector(`#${tag}`).src = url;
@@ -146,20 +177,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileCaseStudyNav = document.querySelector('#case-study-mobile');
     const position = getScrollPosition();
 
+    const currentParent = document.querySelector('nav li.active-parent');
+    const currentChildren = document.querySelectorAll('nav li.active-child');
+    let newParentId;
+
     positionValues.forEach((_, i) => {
-      const li = document.querySelector(positionSelectors[i]);
+      const currentData = positionValues[i].headerData;
+      const li = currentData.navEl;
       const a = li.getElementsByTagName('a')[0];
-      const currPosition = i > 0 ? positionValues[i] : 0;
+      const currPosition = i > 0 ? positionValues[i].position : 0;
       const nextPositionIdx = i + 1;
-      const nextPosition = positionValues[nextPositionIdx] || 999999;
+      const nextPosition =
+        (positionValues[nextPositionIdx] &&
+          positionValues[nextPositionIdx].position) || 999999;
       const windowPositionIsAtLi = position >= currPosition && position < nextPosition;
 
       if (windowPositionIsAtLi && !mobileCaseStudyNav.contains(li)) {
         highlightSection(li, a);
+
+        newParentId = currentData.parentId;
       } else {
         if (li.getAttribute('style')) li.removeAttribute('style');
         if (a.getAttribute('style')) a.removeAttribute('style');
       }
+    });
+
+    if (currentParent) {
+      currentParent.classList.remove('active-parent');
+    }
+
+    currentChildren.forEach(child => child.classList.remove('active-child'));
+
+    newActive = document.querySelectorAll(`[data-parent-header-id="${newParentId}"]`)
+    newActive.forEach(el => {
+      el.classList.add('active-child');
     });
   };
 
@@ -308,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const positions = getCaseStudyHeadingPositions();
       const positionKey = `#${e.target.href.split('#')[1]}-nav`;
-      const newScrollPosition = positions[positionKey];
+      const newScrollPosition = positions[positionKey].position;
       window.scrollTo(0, newScrollPosition + 5);
     }
   });
